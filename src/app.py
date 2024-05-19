@@ -1,7 +1,27 @@
-from utils.handlers import get_response
+from utils.handlers import get_response, validate_bools
 
 
-for _ in range(10):   
-    data = get_response()
-    print(type(data))
-    print(data)
+def masq(ua: bool=True, rf: bool=False, hd: bool=False) -> str:
+    """
+    Compiles and returns header data via weighted random selection
+      - defaults to random user-agent only
+      - optionally returns random referer and/or other pre-defined header data
+    
+    Parameters
+    ----------
+    {ua, rf, hd}: bool
+        indicates whether useragent | referer | header data required
+    
+    Returns
+    -------
+    response: str
+        JSON-formatted header data
+    """
+    valid_bools = validate_bools(ua, rf, hd)
+    if not valid_bools:
+        return "TypeError: non-boolean parameters supplied for ua | rf | hd"
+    
+    response = get_response(ua, rf, hd)
+        
+    return response
+
