@@ -1,9 +1,10 @@
 import json
+import os
 
 
-def extract_data(json_file_path: str) -> list[dict]:
+def extract_data(json_file_path: str) -> dict | list[dict]:
     """
-    Extracts data from JSON file and returns Python list
+    Loads data from JSON file
   
     Parameters
     ----------
@@ -12,17 +13,12 @@ def extract_data(json_file_path: str) -> list[dict]:
   
     Returns
     -------
-    extracted_data: list
-        data from JSON file
+    data: dict | list
+        data loaded from JSON file
     """
     with open(json_file_path, "r") as f:
         data = json.load(f)
-    
-    extracted_data = []
-    for item in data:
-        extracted_data.append(item)
-  
-    return extracted_data
+    return data
 
 
 def update_assets() -> bool:
@@ -33,21 +29,26 @@ def update_assets() -> bool:
     Returns True if successful else False
     """
     try:
-        referer_data = extract_data("../assets/referers.json")
-        # Create lists of data and weights
+        # Get absolute path for src directory 
+        src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        # Path to the "assets" directory
+        assets_dir = os.path.join(src_dir, "assets")  
+        
+        header_data = extract_data(os.path.join(assets_dir,"header.json"))
+        referer_data = extract_data(os.path.join(assets_dir, "referers.json"))
+        useragent_data = extract_data(os.path.join(assets_dir, "useragents.json"))
+        
         referers = [obj["ref"] for obj in referer_data]
         referer_weights = [obj["pct"] for obj in referer_data]
         
-        useragent_data = extract_data("../assets/useragents.json")
-        # Create lists of data and weights
         useragents = [obj["ua"] for obj in useragent_data]
         useragent_weights = [obj["pct"] for obj in useragent_data]
         
         # Save JSON content to assets.py
-        with open("assets.py", "a") as f:
+        with open(os.path.join(src_dir, "utils", "assets.py"), "a") as f:
             f.seek(0)
             f.truncate()
-            f.write("# -*- coding: utf-8 -*-")
+            f.write("HEADER_DATA = " + str(header_data))
             f.write("\n")
             f.write("REFERERS = " + str(referers))
             f.write("\n")

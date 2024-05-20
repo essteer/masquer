@@ -1,4 +1,5 @@
-from utils.handlers import get_response, validate_bools
+from utils.response import get_response
+from utils.validate import validate_params
 
 
 def masq(ua: bool=True, rf: bool=False, hd: bool=False) -> str:
@@ -17,8 +18,9 @@ def masq(ua: bool=True, rf: bool=False, hd: bool=False) -> str:
     response: str
         JSON-formatted header data
     """
-    valid_bools = validate_bools(ua, rf, hd)
-    if not valid_bools:
+    valid_params = validate_params(ua, rf, hd)
+    
+    if not valid_params:
         return "TypeError: non-boolean parameters supplied for ua | rf | hd"
     
     response = get_response(ua, rf, hd)

@@ -1,5 +1,11 @@
 import json
-from utils.assets import REFERERS, REFERER_WEIGHTS, USERAGENTS, USERAGENT_WEIGHTS
+from utils.assets import (
+    HEADER_DATA, 
+    REFERERS, 
+    REFERER_WEIGHTS, 
+    USERAGENTS, 
+    USERAGENT_WEIGHTS
+)
 from utils.select import select_data
 
 
@@ -19,8 +25,7 @@ def get_response(ua: bool, rf: bool, hd: bool) -> str:
     """
     # header data
     if hd:
-        # TODO: update
-        header_data = {}
+        header_data = HEADER_DATA
     else:
         header_data = dict()
 
@@ -38,11 +43,4 @@ def get_response(ua: bool, rf: bool, hd: bool) -> str:
     json_header = json.dumps(header_data)
     
     return json_header
-
-
-def validate_bools(ua: bool, rf: bool, hd: bool) -> bool:
-    """
-    Validates parameters are bools
-    """
-    return all(isinstance(arg, bool) for arg in (ua, rf, hd))
 
