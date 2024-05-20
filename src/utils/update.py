@@ -29,7 +29,7 @@ def update_assets() -> bool:
     Returns True if successful else False
     """
     try:
-        # Get absolute path for src directory 
+        # Get absolute path for "src" directory 
         src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         # Path to the "assets" directory
         assets_dir = os.path.join(src_dir, "assets")  

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "masquerade"
+dynamic = ["version"]
+description = "Weighted-random user-agent and referer data for GET requests"
+authors = [{ name = "Elliott Steer", email = "essteer@pm.me" }]
+dependencies = []
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["get", "header data", "requests", "user-agents"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Operating System :: OS Independent",
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13"
+]
+
+[project.optional-dependencies]
+build = ["hatchling==1.24.2"]
+
+[project.urls]
+documentation = "https://github.com/essteer/masquerade/blob/main/README.md"
+repository = "https://github.com/essteer/masquerade"
+issues = "https://github.com/essteer/masquerade/issues"
