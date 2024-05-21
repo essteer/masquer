@@ -1,5 +1,5 @@
-from utils.response import get_response
-from utils.validate import validate_params
+from src.masquerade.utils.response import get_response
+from src.masquerade.utils.validate import validate_params
 
 
 def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> str:
@@ -21,7 +21,7 @@ def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> str:
     # Confirm parameters are valid bools
     valid_params = validate_params(ua, rf, hd)
     if not valid_params:
-        return "TypeError: non-boolean parameters supplied for ua | rf | hd"
+        return "Error: ua|rf|hd must be blank or boolean"
 
     response = get_response(ua, rf, hd)
 
