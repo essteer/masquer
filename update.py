@@ -24,16 +24,18 @@ def extract_data(json_file_path: str) -> dict | list[dict]:
 def update_assets() -> bool:
     """
     Converts JSON assets into Python variables
-    Run to sync data after updating JSON assets
+    Run to sync data in src/utils/assets.py after updating JSON assets
     
     Returns True if successful else False
     """
     try:
-        # Get absolute path for "src" directory 
-        src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-        # Path to the "assets" directory
-        assets_dir = os.path.join(src_dir, "assets")  
+        # Get absolute path for root directory 
+        root_dir = os.path.abspath(os.path.dirname(__file__))
+        # Path to assets and utils directories
+        assets_dir = os.path.join(root_dir, "assets")
+        utils_dir = os.path.join(root_dir, "src", "utils")
         
+        # Get JSON file data
         header_data = extract_data(os.path.join(assets_dir,"header.json"))
         referer_data = extract_data(os.path.join(assets_dir, "referers.json"))
         useragent_data = extract_data(os.path.join(assets_dir, "useragents.json"))
@@ -45,7 +47,7 @@ def update_assets() -> bool:
         useragent_weights = [obj["pct"] for obj in useragent_data]
         
         # Save JSON content to assets.py
-        with open(os.path.join(src_dir, "utils", "assets.py"), "a") as f:
+        with open(os.path.join(utils_dir, "assets.py"), "a") as f:
             f.seek(0)
             f.truncate()
             f.write("HEADER_DATA = " + str(header_data))
