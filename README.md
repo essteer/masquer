@@ -8,6 +8,8 @@ A tool to generate random user-agent and referer data for GET requests.
 
 ## Contents
 
+- [Overview](#overview)
+  - [Note on privacy](#note-on-privacy)
 - [Installation](#installation)
   - [PyPI package](#pypi-package)
   - [GitHub repo](#github-repo)
@@ -15,11 +17,27 @@ A tool to generate random user-agent and referer data for GET requests.
   - [Examples](#examples)
 - [Local development](#local-development)
   - [Updates](#updates)
-  - [Testing](#testing)
+  - [Tests](#testing)
+
+## Overview
+
+Use `masquerade` to obtain any combination of a random user-agent, referer or header data template, then use this with a library like [`requests`](https://github.com/psf/requests) to control the session data you send to other services.
+
+The user-agent data is drawn from [this list](https://www.useragents.me/) of the most common desktop user-agents, and referer data is taken from [this list](https://gs.statcounter.com/search-engine-market-share/desktop/worldwide) of search engines with the largest global market share.
+
+Weighted random selections are made from those lists to approximate authentic header data patterns.
+
+A basic header template with common attributes — including the recommended [`"Upgrade-Insecure-Requests": "1"`](https://stackoverflow.com/questions/31950470/what-is-the-upgrade-insecure-requests-http-header/32003517#32003517) — is also provided and defaults to the most common referer and user-agent data from the above lists.
+
+### Note on privacy
+
+Controlling header data in this way can help to preserve privacy and hinder third-party tracking behaviour, by blending part of your web profile with the most common configurations. 
+
+It does not provide anonymity — that is a much more complex topic, and the open-source [Privacy Guides](https://www.privacyguides.org/en/) are a good place to start.
 
 ## Installation
 
-To get hold of `masquerade` either install the package into your virtual environment from PyPI, or clone the GitHub repo for the full code base.
+To get hold of `masquerade` either install the package from PyPI into your project's virtual environment, or clone the GitHub repo for the full code base.
 
 ### PyPI package
 
@@ -62,21 +80,97 @@ $ uv pip install hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
 
 ## Operation
 
-Coming soon!
+Interact with `masquerade` via the `masq` method:
+
+```python
+from masquerade import masq
+```
+
+The `masq` function accepts up to three boolean parameters:
+
+```python
+useragent = masq(
+  ua = True,  # user-agent, defaults to True
+  rf = False,  # referer, defaults to False
+  hd = False,  # header-data, defaults to False
+)
+```
 
 ### Examples
 
-Coming soon!
+#### User-agent only
+
+By default only `ua` is set to `True`, so each of the following methods may be used to return just one randomly generated user-agent:
+
+```python
+>>> useragent_1 = masq()
+>>> useragent_2 = masq(True)
+>>> useragent_3 = masq(ua=True)
+```
+
+#### Referer only
+
+By the same logic, these methods will each return just one randomly generated referer:
+
+```python
+>>> referer_1 = masq(False, True)
+>>> referer_2 = masq(ua=False, rf=True)
+>>> referer_3 = masq(ua=False, rf=True, hd=False)
+```
+
+#### Header-data
+
+By default, the header data template supplies the most common user-agent and referer values as fixed, and can be accessed via the following methods:
+
+```python
+>>> default_header_1 = masq(False, False, True)
+>>> default_header_2 = masq(ua=False, hd=True)
+>>> default_header_3 = masq(ua=False, rf=False, hd=True)
+>>>
+>>> default_header_1 == default_header_2 == default_header_3
+True
+```
+
+As per the individual use-cases, get weighted random user-agent and referer values in the header by omitting the `ua` value (which defaults to `True`) and setting `rf` to `True`. A non-exhaustive selection of examples is provided below:
+
+```python
+>>> # header with random user-agent and fixed referer
+>>> random_header_1 = masq(hd=True)  
+>>> random_header_2 = masq(True, False, True)
+>>>
+>>> # header with fixed user-agent and random referer
+>>> random_header_3 = masq(False, True, True)
+>>> random_header_4 = masq(ua=False, rf=True, hd=True)
+>>>
+>>> # header with random user-agent and random referer
+>>> random_header_5 = masq(rf=True, hd=True)
+>>> random_header_6 = masq(True, True, True)
+```
 
 ## Local development
 
-Coming soon!
+The following details will assist with making and testing changes to a cloned version of the repository.
 
 ### Updates
 
-Coming soon!
+The root directory includes `update.py`: if you make changes to the JSON assets stored in the `assets` directory, sync those changes with the `assets.py` file inside the `masquerade` package by running `update.py` from the terminal:
 
-### Testing
+![](https://img.shields.io/badge/Linux-FCC624.svg?style=flat&logo=Linux&logoColor=black)
+![](https://img.shields.io/badge/macOS-000000.svg?style=flat&logo=Apple&logoColor=white)
+
+```console
+$ python3 update.py
+Asset update successful
+```
+
+![](https://img.shields.io/badge/Windows-0078D4.svg?style=flat&logo=Windows&logoColor=white)
+
+```console
+$ python update.py
+Asset update successful
+```
+
+### Tests
 
 `masquerade` uses Python's in-built `unittest` module. 
 
