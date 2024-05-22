@@ -83,7 +83,7 @@ $ uv pip install hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
 Interact with `masquerade` via the `masq` method:
 
 ```python
-from masquerade import masq
+from src.masquerade import masq
 ```
 
 The `masq` function accepts up to three boolean parameters:
@@ -106,6 +106,13 @@ By default only `ua` is set to `True`, so each of the following methods may be u
 >>> useragent_1 = masq()
 >>> useragent_2 = masq(True)
 >>> useragent_3 = masq(ua=True)
+>>>
+>>> useragent_1
+'{"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.3"}'
+>>> useragent_2
+'{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0."}'
+>>> useragent_3
+'{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.3"}'
 ```
 
 #### Referer only
@@ -116,6 +123,13 @@ By the same logic, these methods will each return just one randomly generated re
 >>> referer_1 = masq(False, True)
 >>> referer_2 = masq(ua=False, rf=True)
 >>> referer_3 = masq(ua=False, rf=True, hd=False)
+>>>
+>>> referer_1
+'{"Referer": "https://www.google.com/"}'
+>>> referer_2
+'{"Referer": "https://www.google.com/"}'
+>>> referer_3
+'{"Referer": "https://bing.com/"}'
 ```
 
 #### Header-data
@@ -129,6 +143,8 @@ By default, the header data template supplies the most common user-agent and ref
 >>>
 >>> default_header_1 == default_header_2 == default_header_3
 True
+>>> default_header_1
+'{"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "en-US,en;q=0.5;", "Referer": "https://www.google.com/", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1", "Upgrade-Insecure-Requests": "1", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.3"}'
 ```
 
 As per the individual use-cases, get weighted random user-agent and referer values in the header by omitting the `ua` value (which defaults to `True`) and setting `rf` to `True`. A non-exhaustive selection of examples is provided below:
