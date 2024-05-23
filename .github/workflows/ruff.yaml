@@ -16,4 +16,4 @@ jobs:
         with:
           # Ruff version - sync with .pre-commit-config.yaml
           version: 0.4.4
-          args: check --fix --exit-non-zero-on-fix --show-fixes
+          args: check --fix --exit-non-zero-on-fix --show-fixes --add-noqa

@@ -1,1 +1,1 @@
-from .app import masq
+from .app import masq  # noqa: F401
