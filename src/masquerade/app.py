@@ -1,5 +1,5 @@
-from src.masquerade.utils.response import get_response
-from src.masquerade.utils.validate import validate_params
+from .utils.response import get_response
+from .utils.validate import validate_params
 
 
 def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> str:

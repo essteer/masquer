@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    # Ruff version - sync with .github/workflows/ruff.yml
+    # Ruff version - sync with .github/workflows/ruff.yaml
     rev: v0.4.4
     hooks:
       # Run the linter.

@@ -1,12 +1,12 @@
 import json
-from src.masquerade.utils.assets import (
+from .assets import (
     HEADER_DATA,
     REFERERS,
     REFERER_WEIGHTS,
     USERAGENTS,
     USERAGENT_WEIGHTS,
 )
-from src.masquerade.utils.select import select_data
+from .select import select_data
 
 
 def get_response(ua: bool, rf: bool, hd: bool) -> str:
