@@ -1,6 +1,8 @@
 # Masquerade
 
+![GitHub Actions Workflow Status](https://github.com/essteer/masquerade/actions/workflows/test.yaml/badge.svg)
 ![](https://img.shields.io/badge/Python-3.9_|_3.10_|_3.11_|_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white)
+
 
 [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -39,6 +41,8 @@ $ uv pip install masquerade
 ```
 
 ### GitHub repo
+
+[![](https://img.shields.io/badge/GitHub-masquerade-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquerade)
 
 Clone the `masquerade` repo from GitHub for the full source code. The repo includes the JSON source files used to generate the header data, a script to sync the programme if updates are made to the JSON files, and a test suite.
 
