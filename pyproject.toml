@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.24.2"]
 build-backend = "hatchling.build"
 
 [project]
@@ -19,17 +19,35 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13"
 ]
 
 [project.optional-dependencies]
-dev = ["hatchling==1.24.2", "pre-commit==3.7.1", "ruff==0.4.4"]
+dev = ["hatch==1.11.1", "hatchling==1.24.2", "pre-commit==3.7.1", "ruff==0.4.4"]
 
 [project.urls]
 documentation = "https://github.com/essteer/masquerade/blob/main/README.md"
 repository = "https://github.com/essteer/masquerade"
 issues = "https://github.com/essteer/masquerade/issues"
+
+[tool.hatch.version]
+path = "src/masquerade/__about__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/masquerade/**/*.py"
+]
+exclude = [
+    "/.github",
+    "*.json",
+    "/tests",
+    ".pre-commit-config.yaml",
+    "update.py"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/masquerade"]

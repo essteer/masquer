@@ -1,23 +1,12 @@
 # Masquerade
 
-![](https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=Python&logoColor=white)
-![](https://img.shields.io/badge/Ruff-D7FF64.svg?style=flat&logo=Ruff&logoColor=black)
-![GitHub last commit](https://img.shields.io/github/last-commit/essteer/masquerade?color=green)
+![](https://img.shields.io/badge/Python-3.8_|_3.9_|_3.10_|_3.11_|_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white)
+
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
 
 A tool to generate random user-agent and referer data for GET requests.
-
-## Contents
-
-- [Overview](#overview)
-  - [Note on privacy](#note-on-privacy)
-- [Installation](#installation)
-  - [PyPI package](#pypi-package)
-  - [GitHub repo](#github-repo)
-- [Operation](#operation)
-  - [Examples](#examples)
-- [Local development](#local-development)
-  - [Updates](#updates)
-  - [Tests](#testing)
 
 ## Overview
 
@@ -83,7 +72,7 @@ $ uv pip install hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
 Interact with `masquerade` via the `masq` method:
 
 ```python
-from src.masquerade import masq
+from masquerade import masq
 ```
 
 The `masq` function accepts up to three boolean parameters:
