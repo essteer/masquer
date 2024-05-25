@@ -1,5 +1,5 @@
 import unittest
-from src.masquerade.utils.assets import (
+from src.masquer.utils.assets import (
     HEADER_DATA,
     REFERERS,
     REFERER_WEIGHTS,

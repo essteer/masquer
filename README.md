@@ -1,6 +1,6 @@
-# Masquerade
+# Masquer
 
-[![GitHub Actions Workflow Status](https://github.com/essteer/masquerade/actions/workflows/test.yaml/badge.svg)](https://github.com/essteer/masquerade/actions/workflows/test.yaml)
+[![GitHub Actions Workflow Status](https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg)](https://github.com/essteer/masquer/actions/workflows/test.yaml)
 [![PyPI - Version](https://img.shields.io/badge/PyPI-v1.0.0-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
 [![Python - Version](https://img.shields.io/badge/Python-3.9_|_3.10_|_3.11_|_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white)](https://pypi.org/project/masquer/)
 
@@ -13,7 +13,7 @@ A tool to generate random user-agent and referer data for GET requests.
 
 ## Overview
 
-Use `masquerade` to obtain any combination of a random user-agent, referer or header data template, then use this with a library like [`requests`](https://github.com/psf/requests) to control the session data you send to other services.
+Use `masquer` to obtain any combination of a random user-agent, referer or header data template, then use this with a library like [`requests`](https://github.com/psf/requests) to control the session data you send to other services.
 
 The user-agent data is drawn from [this list](https://www.useragents.me/) of the most common desktop user-agents, and referer data is taken from [this list](https://gs.statcounter.com/search-engine-market-share/desktop/worldwide) of search engines with the largest global market share.
 
@@ -29,15 +29,15 @@ It does not provide anonymity — that is a much more complex topic, and the ope
 
 ## Installation
 
-To get hold of `masquerade` either install the package from PyPI into your project's virtual environment, or clone the GitHub repo for the full code base.
+To get hold of `masquer` either install the package from PyPI into your project's virtual environment, or clone the GitHub repo for the full code base.
 
 ### PyPI package
 
 [![](https://img.shields.io/badge/PyPI-masquer-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
 
-Install the `masquerade` package from PyPI to retrieve just the tool with no extras.
+Install the `masquer` package from PyPI to retrieve just the tool with no extras.
 
-Activate your existing project's virtual environment, then download `masquerade` using a package manager. The below example uses [Astral's](https://astral.sh/blog/uv) `uv`; substitute `pip` by dropping "`uv`" or use another package manager as needed: 
+Activate your existing project's virtual environment, then download `masquer` using a package manager. The below example uses [Astral's](https://astral.sh/blog/uv) `uv`; substitute `pip` by dropping "`uv`" or use another package manager as needed: 
 
 ```console
 $ uv pip install masquer
@@ -45,12 +45,12 @@ $ uv pip install masquer
 
 ### GitHub repo
 
-[![](https://img.shields.io/badge/GitHub-masquerade-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquerade)
+[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
-Clone the `masquerade` repo from GitHub for the full source code. The repo includes the JSON source files used to generate the header data, a script to sync the programme if updates are made to the JSON files, and a test suite.
+Clone the `masquer` repo from GitHub for the full source code. The repo includes the JSON source files used to generate the header data, a script to sync the programme if updates are made to the JSON files, and a test suite.
 
 ```console
-$ git clone git@github.com:essteer/masquerade
+$ git clone git@github.com:essteer/masquer
 ```
 
 The functional code within the package `src` directory has no dependencies beyond Python built-in modules. If you intend to make changes to your cloned version of the repo, you may optionally install the `project.optional-dependencies` declared in the `pyproject.toml` file.
@@ -76,10 +76,10 @@ $ uv pip install hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
 
 ## Operation
 
-Interact with `masquerade` via the `masq` method:
+Interact with `masquer` via the `masq` method:
 
 ```python
-from masquerade import masq
+from masquer import masq
 ```
 
 The `masq` function accepts up to three boolean parameters:
@@ -165,7 +165,7 @@ The following details will assist with making and testing changes to a cloned ve
 
 ### Updates
 
-The root directory includes `update.py`: if you make changes to the JSON assets stored in the `assets` directory, sync those changes with the `assets.py` file inside the `masquerade` package by running `update.py` from the terminal:
+The root directory includes `update.py`: if you make changes to the JSON assets stored in the `assets` directory, sync those changes with the `assets.py` file inside the `masquer` package by running `update.py` from the terminal:
 
 ![](https://img.shields.io/badge/Linux-FCC624.svg?style=flat&logo=Linux&logoColor=black)
 ![](https://img.shields.io/badge/macOS-000000.svg?style=flat&logo=Apple&logoColor=white)
@@ -184,7 +184,7 @@ Asset update successful
 
 ### Tests
 
-`masquerade` uses Python's in-built `unittest` module. 
+`masquer` uses Python's in-built `unittest` module. 
 
 To run the entire test suite using `discover`, or specify an individual test file from the `tests` directory — for example `test_assets.py` — run one of the following shell commands from the project `root` directory:
 

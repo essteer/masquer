@@ -1,5 +1,5 @@
 import unittest
-from src.masquerade.utils.validate import validate_params
+from src.masquer.utils.validate import validate_params
 
 
 class TestValidateParams(unittest.TestCase):

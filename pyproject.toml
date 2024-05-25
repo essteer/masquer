@@ -11,9 +11,9 @@ dependencies = []
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
 readme = "README.md"
-keywords = ["get", "header data", "requests", "user-agents"]
+keywords = ["requests", "header data", "user-agents"]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Operating System :: OS Independent",
     "Natural Language :: English",
     "Intended Audience :: Developers",
@@ -29,16 +29,16 @@ classifiers = [
 dev = ["hatch==1.11.1", "hatchling==1.24.2", "pre-commit==3.7.1", "ruff==0.4.4"]
 
 [project.urls]
-documentation = "https://github.com/essteer/masquerade/blob/main/README.md"
-repository = "https://github.com/essteer/masquerade"
-issues = "https://github.com/essteer/masquerade/issues"
+documentation = "https://github.com/essteer/masquer/blob/main/README.md"
+repository = "https://github.com/essteer/masquer"
+issues = "https://github.com/essteer/masquer/issues"
 
 [tool.hatch.version]
-path = "src/masquerade/__about__.py"
+path = "src/masquer/__about__.py"
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "src/masquerade/**/*.py"
+    "src/masquer/**/*.py"
 ]
 exclude = [
     "/.github",
@@ -49,4 +49,4 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/masquerade"]
+packages = ["src/masquer"]

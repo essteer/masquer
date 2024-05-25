@@ -1,5 +1,5 @@
 import unittest
-from src.masquerade.app import masq
+from src.masquer.app import masq
 
 
 class TestMasq(unittest.TestCase):

@@ -1,13 +1,13 @@
 import unittest
 from unittest.mock import patch
-from src.masquerade.utils.assets import (
+from src.masquer.utils.assets import (
     HEADER_DATA,
     REFERERS,
     REFERER_WEIGHTS,
     USERAGENTS,
     USERAGENT_WEIGHTS,
 )
-from src.masquerade.utils.response import get_response
+from src.masquer.utils.response import get_response
 
 
 class TestGetResponse(unittest.TestCase):

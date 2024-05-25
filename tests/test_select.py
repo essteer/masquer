@@ -1,11 +1,11 @@
 import unittest
-from src.masquerade.utils.assets import (
+from src.masquer.utils.assets import (
     REFERERS,
     REFERER_WEIGHTS,
     USERAGENTS,
     USERAGENT_WEIGHTS,
 )
-from src.masquerade.utils.select import select_data
+from src.masquer.utils.select import select_data
 
 
 class TestSelectData(unittest.TestCase):
