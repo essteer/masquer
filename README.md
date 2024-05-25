@@ -1,7 +1,7 @@
 # Masquer
 
 [![GitHub Actions Workflow Status](https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg)](https://github.com/essteer/masquer/actions/workflows/test.yaml)
-[![PyPI - Version](https://img.shields.io/badge/PyPI-v1.0.0-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
+[![PyPI - Version](https://img.shields.io/badge/PyPI-v1.0.1-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
 [![Python - Version](https://img.shields.io/badge/Python-3.9_|_3.10_|_3.11_|_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white)](https://pypi.org/project/masquer/)
 
 
