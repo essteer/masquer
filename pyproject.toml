@@ -26,7 +26,13 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-dev = ["hatch==1.11.1", "hatchling==1.24.2", "pre-commit==3.7.1", "ruff==0.4.4"]
+dev = [
+    "fastapi==0.111.0", 
+    "hatch==1.11.1", 
+    "hatchling==1.24.2", 
+    "pre-commit==3.7.1", 
+    "ruff==0.4.4"
+]
 
 [project.urls]
 documentation = "https://github.com/essteer/masquer/blob/main/README.md"

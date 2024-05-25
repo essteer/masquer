@@ -1,10 +1,10 @@
 # Masquer
 
 [![GitHub Actions Workflow Status](https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg)](https://github.com/essteer/masquer/actions/workflows/test.yaml)
-[![PyPI - Version](https://img.shields.io/badge/PyPI-v1.0.1-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
+[![PyPI - Version](https://img.shields.io/badge/PyPI-v1.1.0-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
 [![Python - Version](https://img.shields.io/badge/Python-3.9_|_3.10_|_3.11_|_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white)](https://pypi.org/project/masquer/)
 
-
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white)](https://github.com/tiangolo/fastapi)
 [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
@@ -63,7 +63,7 @@ First create and activate a virtual environment — the below example uses [Astr
 ```console
 $ uv venv
 $ source .venv/bin/activate
-$ uv pip install hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
+$ uv pip install fastapi==0.111.0 hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
 ```
 
 ![](https://img.shields.io/badge/Windows-0078D4.svg?style=flat&logo=Windows&logoColor=white)
@@ -71,10 +71,31 @@ $ uv pip install hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
 ```console
 $ uv venv
 $ .venv\Scripts\activate
-$ uv pip install hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
+$ uv pip install fastapi==0.111.0 hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
 ```
 
+### FastAPI
+
+[![FastAPI](https://img.shields.io/badge/FastAPI-masquer_API-009688?style=flat&logo=FastAPI&logoColor=white)](https://github.com/tiangolo/fastapi)
+
+The GitHub repo includes `masquer API`, a FastAPI version of `masquer`.
+
+To self-host the API, install the `FastAPI` optional dependency as declared in the `pyproject.toml` file. 
+
+Activate the API from the root directory via:
+
+```console
+$ fastapi run src/masquer_api/main.py
+```
+
+Then follow the instructions provided by FastAPI in the terminal.
+
+By default, the FastAPI app will run on localhost. To view the API documentation, run the API and navigate to `http://127.0.0.1:8000/docs`.
+
 ## Operation
+
+[![](https://img.shields.io/badge/PyPI-masquer-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
+[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
 Interact with `masquer` via the `masq` method:
 
@@ -92,6 +113,12 @@ useragent = masq(
 )
 ```
 
+And returns the response in dictionary form:
+
+```python
+{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.3'}
+```
+
 ### Examples
 
 #### User-agent only
@@ -104,11 +131,11 @@ By default only `ua` is set to `True`, so each of the following methods may be u
 >>> useragent_3 = masq(ua=True)
 >>>
 >>> useragent_1
-'{"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.3"}'
+{"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.3"}
 >>> useragent_2
-'{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0."}'
+{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0."}
 >>> useragent_3
-'{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.3"}'
+{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.3"}
 ```
 
 #### Referer only
@@ -121,11 +148,11 @@ By the same logic, these methods will each return just one randomly generated re
 >>> referer_3 = masq(ua=False, rf=True, hd=False)
 >>>
 >>> referer_1
-'{"Referer": "https://www.google.com/"}'
+{"Referer": "https://www.google.com/"}
 >>> referer_2
-'{"Referer": "https://www.google.com/"}'
+{"Referer": "https://www.google.com/"}
 >>> referer_3
-'{"Referer": "https://bing.com/"}'
+{"Referer": "https://bing.com/"}
 ```
 
 #### Header-data
@@ -140,7 +167,7 @@ By default, the header data template supplies the most common user-agent and ref
 >>> default_header_1 == default_header_2 == default_header_3
 True
 >>> default_header_1
-'{"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "en-US,en;q=0.5;", "Referer": "https://www.google.com/", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1", "Upgrade-Insecure-Requests": "1", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.3"}'
+{"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "en-US,en;q=0.5;", "Referer": "https://www.google.com/", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1", "Upgrade-Insecure-Requests": "1", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.3"}
 ```
 
 As per the individual use-cases, get weighted random user-agent and referer values in the header by omitting the `ua` value (which defaults to `True`) and setting `rf` to `True`. A non-exhaustive selection of examples is provided below:

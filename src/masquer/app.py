@@ -2,7 +2,7 @@ from .utils.response import get_response
 from .utils.validate import validate_params
 
 
-def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> str:
+def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
     """
     Compiles and returns header data via weighted random selection
       - defaults to random user-agent only
@@ -15,8 +15,8 @@ def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> str:
 
     Returns
     -------
-    response: str
-        JSON-formatted header data
+    response: dict
+        useragent | referer | header data as requested
     """
     # Confirm parameters are valid bools
     valid_params = validate_params(ua, rf, hd)
