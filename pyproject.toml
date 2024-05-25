@@ -3,7 +3,7 @@ requires = ["hatchling>=1.24.2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "masquerade"
+name = "masquer"
 dynamic = ["version"]
 description = "Weighted-random user-agent and referer data for GET requests"
 authors = [{ name = "Elliott Steer", email = "essteer@pm.me" }]
@@ -13,7 +13,7 @@ license = { file = "LICENSE" }
 readme = "README.md"
 keywords = ["get", "header data", "requests", "user-agents"]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 4 - Beta",
     "Operating System :: OS Independent",
     "Natural Language :: English",
     "Intended Audience :: Developers",
