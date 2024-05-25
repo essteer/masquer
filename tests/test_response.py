@@ -13,39 +13,38 @@ from src.masquer.utils.response import get_response
 class TestGetResponse(unittest.TestCase):
     def test_header_data(self):
         """Test for valid header output"""
-        output = get_response(False, False, True).replace('"', "'")
-        self.assertEqual(output, str(HEADER_DATA))
-        self.assertEqual(get_response(False, False, False), str(dict()))
+        self.assertEqual(get_response(False, False, True), HEADER_DATA)
+        self.assertEqual(get_response(False, False, False), dict())
 
     def test_referers(self):
         """Test for valid referer output"""
         for _ in range(20):
             output = get_response(False, True, False)
-            self.assertTrue(any([x in output for x in REFERERS]))
+            self.assertTrue(any([x in output.values() for x in REFERERS]))
         for _ in range(20):
             output = get_response(True, True, False)
-            self.assertTrue(any([x in output for x in REFERERS]))
+            self.assertTrue(any([x in output.values() for x in REFERERS]))
         for _ in range(20):
             output = get_response(True, True, True)
-            self.assertTrue(any([x in output for x in REFERERS]))
+            self.assertTrue(any([x in output.values() for x in REFERERS]))
         for _ in range(20):
             output = get_response(False, True, True)
-            self.assertTrue(any([x in output for x in REFERERS]))
+            self.assertTrue(any([x in output.values() for x in REFERERS]))
 
     def test_useragents(self):
         """Test for valid user-agent output"""
         for _ in range(20):
             output = get_response(True, False, False)
-            self.assertTrue(any([x in output for x in USERAGENTS]))
+            self.assertTrue(any([x in output.values() for x in USERAGENTS]))
         for _ in range(20):
             output = get_response(True, True, False)
-            self.assertTrue(any([x in output for x in USERAGENTS]))
+            self.assertTrue(any([x in output.values() for x in USERAGENTS]))
         for _ in range(20):
             output = get_response(True, False, True)
-            self.assertTrue(any([x in output for x in USERAGENTS]))
+            self.assertTrue(any([x in output.values() for x in USERAGENTS]))
         for _ in range(20):
             output = get_response(True, True, True)
-            self.assertTrue(any([x in output for x in USERAGENTS]))
+            self.assertTrue(any([x in output.values() for x in USERAGENTS]))
 
     @patch("random.choices")
     def test_referer_weight_selection(self, mock_choices):

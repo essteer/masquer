@@ -1,4 +1,3 @@
-import json
 from .assets import (
     HEADER_DATA,
     REFERERS,
@@ -9,7 +8,7 @@ from .assets import (
 from .select import select_data
 
 
-def get_response(ua: bool, rf: bool, hd: bool) -> str:
+def get_response(ua: bool, rf: bool, hd: bool) -> dict:
     """
     Prepares and returns header data
 
@@ -20,26 +19,23 @@ def get_response(ua: bool, rf: bool, hd: bool) -> str:
 
     Returns
     -------
-    json_header: str
-        JSON-formatted header data
+    response_data: dict
+        useragent | referer | header data as requested
     """
     # header data
     if hd:
-        header_data = HEADER_DATA
+        response_data = HEADER_DATA
     else:
-        header_data = dict()
+        response_data = dict()
 
     # referer
     if rf:
         referer = select_data(REFERERS, REFERER_WEIGHTS)
-        header_data["Referer"] = referer
+        response_data["Referer"] = referer
 
     # user-agent
     if ua:
         useragent = select_data(USERAGENTS, USERAGENT_WEIGHTS)
-        header_data["User-Agent"] = useragent
+        response_data["User-Agent"] = useragent
 
-    # serialise response
-    json_header = json.dumps(header_data)
-
-    return json_header
+    return response_data

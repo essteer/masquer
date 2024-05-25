@@ -5,25 +5,25 @@ from src.masquer.app import masq
 class TestMasq(unittest.TestCase):
     def test_all_blank_inputs(self):
         """Test with all blank inputs"""
-        self.assertIsInstance(masq(), str)
-        self.assertIsInstance(masq(ua=False, rf=False, hd=False), str)
+        self.assertIsInstance(masq(), dict)
+        self.assertIsInstance(masq(ua=False, rf=False, hd=False), dict)
 
     def test_valid_boolean_input(self):
         """Test with valid boolean inputs"""
-        self.assertIsInstance(masq(ua=True, rf=False, hd=False), str)
-        self.assertIsInstance(masq(ua=True, rf=True, hd=False), str)
-        self.assertIsInstance(masq(ua=True, rf=True, hd=True), str)
-        self.assertIsInstance(masq(ua=False, rf=True, hd=False), str)
-        self.assertIsInstance(masq(ua=False, rf=True, hd=True), str)
-        self.assertIsInstance(masq(ua=False, rf=False, hd=True), str)
-        self.assertIsInstance(masq(ua=True, rf=False, hd=True), str)
-        self.assertIsInstance(masq(ua=False, rf=False, hd=False), str)
-        self.assertIsInstance(masq(ua=True), str)
-        self.assertIsInstance(masq(ua=False), str)
-        self.assertIsInstance(masq(rf=True), str)
-        self.assertIsInstance(masq(rf=False), str)
-        self.assertIsInstance(masq(hd=True), str)
-        self.assertIsInstance(masq(hd=False), str)
+        self.assertIsInstance(masq(ua=True, rf=False, hd=False), dict)
+        self.assertIsInstance(masq(ua=True, rf=True, hd=False), dict)
+        self.assertIsInstance(masq(ua=True, rf=True, hd=True), dict)
+        self.assertIsInstance(masq(ua=False, rf=True, hd=False), dict)
+        self.assertIsInstance(masq(ua=False, rf=True, hd=True), dict)
+        self.assertIsInstance(masq(ua=False, rf=False, hd=True), dict)
+        self.assertIsInstance(masq(ua=True, rf=False, hd=True), dict)
+        self.assertIsInstance(masq(ua=False, rf=False, hd=False), dict)
+        self.assertIsInstance(masq(ua=True), dict)
+        self.assertIsInstance(masq(ua=False), dict)
+        self.assertIsInstance(masq(rf=True), dict)
+        self.assertIsInstance(masq(rf=False), dict)
+        self.assertIsInstance(masq(hd=True), dict)
+        self.assertIsInstance(masq(hd=False), dict)
 
     def test_non_boolean_input(self):
         """Test for non boolean input"""
