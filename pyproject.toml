@@ -38,6 +38,7 @@ dev = [
 documentation = "https://github.com/essteer/masquer/blob/main/README.md"
 repository = "https://github.com/essteer/masquer"
 issues = "https://github.com/essteer/masquer/issues"
+docker = "https://hub.docker.com/r/essteer/masquer"
 
 [tool.hatch.version]
 path = "src/masquer/__about__.py"

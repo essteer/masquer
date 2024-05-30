@@ -4,10 +4,10 @@
 [![PyPI - Version](https://img.shields.io/badge/PyPI-v1.1.0-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
 [![Python - Version](https://img.shields.io/badge/Python-3.9_|_3.10_|_3.11_|_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white)](https://pypi.org/project/masquer/)
 
+[![Docker](https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white)](https://github.com/tiangolo/fastapi)
 [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-
 
 A tool to generate random user-agent and referer data for GET requests.
 
@@ -29,7 +29,7 @@ It does not provide anonymity — that is a much more complex topic, and the ope
 
 ## Installation
 
-To get hold of `masquer` either install the package from PyPI into your project's virtual environment, or clone the GitHub repo for the full code base.
+To get hold of `masquer` either install the PyPI package into your project's virtual environment, clone the GitHub repo or pull the Docker image.
 
 ### PyPI package
 
@@ -92,6 +92,16 @@ Then follow the instructions provided by FastAPI in the terminal.
 
 By default, the FastAPI app will run on localhost. To view the API documentation, run the API and navigate to `http://127.0.0.1:8000/docs`.
 
+### Docker image
+
+[![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
+
+For no good reason, the `masquer API` is also available as a `Docker` image:
+
+```console
+$ docker pull essteer/masquer
+```
+
 ## Operation
 
 [![](https://img.shields.io/badge/PyPI-masquer-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
@@ -118,6 +128,30 @@ And returns the response in dictionary form:
 ```python
 {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.3'}
 ```
+
+### FastAPI
+
+[![FastAPI](https://img.shields.io/badge/FastAPI-masquer_API-009688?style=flat&logo=FastAPI&logoColor=white)](https://github.com/tiangolo/fastapi)
+
+If using `masquer API` make curl requests as follows, replacing the IP address as appropriate:
+
+```bash
+$ curl -X GET \
+  http://127.0.0.1:8000/masq?ua=true&rf=false&hd=false \
+  -H 'accept: application/json'
+```
+
+### Docker
+
+[![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
+
+Run the `masquer API` from a container on the `masquer` Docker image as follows:
+
+```console
+$ docker run -d --name masquer -p 8000:8000 esteer/masquer
+```
+
+Then interact as per the FastAPI instructions above.
 
 ### Examples
 

@@ -18,17 +18,22 @@ A basic header template with common attributes — including the recommended [`"
 VERSION = __version__
 
 app = FastAPI(
-    title="Masquer API", 
+    title="Masquer API",
     summary="A tool to generate random user-agent and referer data for GET requests.",
     description=DESCRIPTION,
-    version=VERSION, 
+    version=VERSION,
     license_info={
-        "name": "MIT License", 
-        "url": "https://github.com/essteer/masquer/blob/main/LICENSE"
-    }
+        "name": "MIT License",
+        "url": "https://github.com/essteer/masquer/blob/main/LICENSE",
+    },
 )
 
+
 @app.get("/masq")
-def get_masq(ua: Union[bool, None] = True, rf: Union[bool, None] = False, hd: Union[bool, None] = False):
+def get_masq(
+    ua: Union[bool, None] = True,
+    rf: Union[bool, None] = False,
+    hd: Union[bool, None] = False,
+):
     response = masq(ua, rf, hd)
     return JSONResponse(content=response)
