@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 RUN pip install --no-cache-dir fastapi==0.111.0
 
 # Copy entire src dir to WORKDIR
-COPY . .
+COPY ./src .
 
 # FastAPI defaults to 8000
 EXPOSE 8000
