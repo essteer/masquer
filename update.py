@@ -33,7 +33,7 @@ def update_assets() -> bool:
         root_dir = os.path.abspath(os.path.dirname(__file__))
         # Path to assets and utils directories
         assets_dir = os.path.join(root_dir, "assets")
-        utils_dir = os.path.join(root_dir, "src", "utils")
+        utils_dir = os.path.join(root_dir, "src", "masquer", "utils")
 
         # Get JSON file data
         header_data = extract_data(os.path.join(assets_dir, "header.json"))
