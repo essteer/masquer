@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">Masquer</h1>
+<h1 align="center">Masquer</h1>
 
 <p align="center">
   <a href="https://github.com/essteer/masquer/actions/workflows/test.yaml"><img src="https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg"></a>

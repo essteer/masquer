@@ -22,17 +22,14 @@ def get_response(ua: bool, rf: bool, hd: bool) -> dict:
     response_data: dict
         useragent | referer | header data as requested
     """
+    response_data = dict()
     # header data
     if hd:
         response_data = HEADER_DATA
-    else:
-        response_data = dict()
-
     # referer
     if rf:
         referer = select_data(REFERERS, REFERER_WEIGHTS)
         response_data["Referer"] = referer
-
     # user-agent
     if ua:
         useragent = select_data(USERAGENTS, USERAGENT_WEIGHTS)
