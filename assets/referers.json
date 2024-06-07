@@ -1,15 +1,15 @@
 [
     {
         "ref": "https://www.google.com/", 
-        "pct": 80.74
+        "pct": 80.51
     }, 
     {
         "ref": "https://bing.com/", 
-        "pct": 11.19
+        "pct": 11.37
     }, 
     {
         "ref": "https://search.yahoo.com/", 
-        "pct": 2.75
+        "pct": 2.97
     }, 
     {
         "ref": "https://yandex.com/", 
@@ -17,10 +17,10 @@
     },
     {
         "ref": "https://duckduckgo.com/", 
-        "pct": 0.75
+        "pct": 0.72
     },
     {
         "ref": "https://www.baidu.com/", 
-        "pct": 0.69
+        "pct": 0.59
     } 
 ]
