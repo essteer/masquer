@@ -26,7 +26,7 @@ The user-agent data is drawn from [this list](https://www.useragents.me/) of the
 
 Weighted random selections are made from those lists to approximate authentic header data patterns.
 
-A basic header template with common attributes — including the recommended [`"Upgrade-Insecure-Requests": "1"`](https://stackoverflow.com/questions/31950470/what-is-the-upgrade-insecure-requests-http-header/32003517#32003517) — is also provided and defaults to the most common referer and user-agent data from the above lists.
+A basic header template with common attributes — like [`"Upgrade-Insecure-Requests": "1"`](https://stackoverflow.com/questions/31950470/what-is-the-upgrade-insecure-requests-http-header/32003517#32003517) — is also provided and defaults to the most common referer and user-agent data from the above lists.
 
 ### Note on privacy
 
@@ -83,7 +83,7 @@ $ uv pip install fastapi==0.111.0 hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.
 
 ### FastAPI
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-masquer_API-009688?style=flat&logo=FastAPI&logoColor=white)](https://github.com/tiangolo/fastapi)
+[![FastAPI](https://img.shields.io/badge/FastAPI-masquer_API-009688?style=flat&logo=FastAPI&logoColor=white)](https://masquer.fly.dev/docs)
 
 The GitHub repo includes `masquer API`, a FastAPI version of `masquer`.
 
@@ -138,13 +138,15 @@ And returns the response in dictionary form:
 
 ### FastAPI
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-masquer_API-009688?style=flat&logo=FastAPI&logoColor=white)](https://github.com/tiangolo/fastapi)
+[![FastAPI](https://img.shields.io/badge/FastAPI-masquer_API-009688?style=flat&logo=FastAPI&logoColor=white)](https://masquer.fly.dev/docs)
 
-If using `masquer API` make curl requests as follows, replacing the IP address as appropriate:
+`masquer API` is deployed on Fly.io - view the docs at [`https://masquer.fly.dev/docs`](https://masquer.fly.dev).
+
+An example of how to use `masquer API`:
 
 ```bash
 $ curl -X GET \
-  http://127.0.0.1:8000/masq?ua=true&rf=false&hd=false \
+  'https://masquer.fly.dev/masq?ua=true&rf=false&hd=false' \
   -H 'accept: application/json'
 ```
 
