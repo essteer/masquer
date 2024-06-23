@@ -237,8 +237,6 @@ The following details will assist with making and testing changes to a cloned ve
 
 The root directory includes a shell script `update.sh` for convenience to update JSON assets for the `masquer` package.
 
-If using your own JSON data you can still make use of the `update_assets()` function inside `update.py` to sync changes with the `assets.py` file inside the `masquer` package by running `update.py` from the terminal:
-
 ![](https://img.shields.io/badge/Linux-FCC624.svg?style=flat&logo=Linux&logoColor=black)
 
 ```console
@@ -246,6 +244,8 @@ $ chmod +x update.sh
 $ ./update.sh
 Update successful
 ```
+
+If using your own JSON data you can still make use of the `update_assets()` function inside `update.py` to sync changes with the `assets.py` file inside the `masquer` package.
 
 ### Tests
 
