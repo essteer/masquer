@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/essteer/masquer/actions/workflows/test.yaml"><img src="https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg"></a>
-  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/PyPI-v1.1.1-3775A9.svg?style=flat&logo=PyPI&logoColor=white"></a>
+  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/PyPI-v1.2.0-3775A9.svg?style=flat&logo=PyPI&logoColor=white"></a>
   <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/Python-3.9_|_3.10_|_3.11_|_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white"></a>
   <a href="https://snyk.io/test/github/essteer/masquer"><img src="https://snyk.io/test/github/essteer/masquer/badge.svg?name=Snyk&style=flat&logo=Snyk"></a>
 </p>
@@ -235,21 +235,16 @@ The following details will assist with making and testing changes to a cloned ve
 
 ### Updates
 
-The root directory includes `update.py`: if you make changes to the JSON assets stored in the `assets` directory, sync those changes with the `assets.py` file inside the `masquer` package by running `update.py` from the terminal:
+The root directory includes a shell script `update.sh` for convenience to update JSON assets for the `masquer` package.
+
+If using your own JSON data you can still make use of the `update_assets()` function inside `update.py` to sync changes with the `assets.py` file inside the `masquer` package by running `update.py` from the terminal:
 
 ![](https://img.shields.io/badge/Linux-FCC624.svg?style=flat&logo=Linux&logoColor=black)
-![](https://img.shields.io/badge/macOS-000000.svg?style=flat&logo=Apple&logoColor=white)
 
 ```console
-$ python3 update.py
-Asset update successful
-```
-
-![](https://img.shields.io/badge/Windows-0078D4.svg?style=flat&logo=Windows&logoColor=white)
-
-```console
-$ python update.py
-Asset update successful
+$ chmod +x update.sh
+$ ./update.sh
+Update successful
 ```
 
 ### Tests
