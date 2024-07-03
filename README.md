@@ -92,7 +92,7 @@ To self-host the API, install the `FastAPI` optional dependency as declared in t
 Activate the API from the root directory via:
 
 ```console
-$ fastapi run src/masquer_api/main.py
+$ fastapi run src/api/main.py
 ```
 
 Then follow the instructions provided by FastAPI in the terminal.
