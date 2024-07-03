@@ -19,4 +19,4 @@ EXPOSE 8000
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
 
-CMD [ "fastapi", "run", "./masquer_api/main.py" ]
+CMD [ "fastapi", "run", "./api/main.py" ]
