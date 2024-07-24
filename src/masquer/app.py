@@ -11,7 +11,7 @@ def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
     Parameters
     ----------
     {ua, rf, hd}: bool
-        indicates whether useragent | referer | header data required
+        indicates whether useragent | referer | header data requested
 
     Returns
     -------
