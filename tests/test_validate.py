@@ -3,8 +3,8 @@ from src.masquer.utils.validate import validate_params
 
 
 class TestValidateParams(unittest.TestCase):
-    def test_valid_params(self):
-        """Test for valid parameters"""
+    def test_calling_validate_params_with_valid_args_returns_true(self):
+        """Calling validate_params() with valid args returns True"""
         self.assertTrue(validate_params(True, False, False))
         self.assertTrue(validate_params(True, True, False))
         self.assertTrue(validate_params(True, False, True))
@@ -14,8 +14,8 @@ class TestValidateParams(unittest.TestCase):
         self.assertTrue(validate_params(False, False, True))
         self.assertTrue(validate_params(False, False, False))
 
-    def test_invalid_params(self):
-        """Test for invalid parameters"""
+    def test_calling_validate_params_with_invalid_args_returns_false(self):
+        """Calling validate_params() with invalid args returns False"""
         self.assertFalse(validate_params(0, True, True))
         self.assertFalse(validate_params(True, "string", True))
         self.assertFalse(validate_params(True, True, 0.0))
@@ -26,8 +26,8 @@ class TestValidateParams(unittest.TestCase):
         self.assertFalse(validate_params(None, None, None))
         self.assertFalse(validate_params(None, True, True))
 
-    def test_missing_params(self):
-        """Test for missing parameters"""
+    def test_calling_validate_params_with_missing_args_raises_type_error(self):
+        """Calling validate_params() with missing args raises TypeError"""
         with self.assertRaises(TypeError):
             validate_params(True)
         with self.assertRaises(TypeError):
@@ -45,8 +45,8 @@ class TestValidateParams(unittest.TestCase):
         with self.assertRaises(TypeError):
             validate_params(rf=True, hd=True)
 
-    def test_surplus_params(self):
-        """Test for surplus parameters"""
+    def test_calling_validate_params_with_surplus_args_raises_type_error(self):
+        """Calling validate_params() with surplus args raises TypeError"""
         with self.assertRaises(TypeError):
             validate_params(True, True, True, True)
         with self.assertRaises(TypeError):
