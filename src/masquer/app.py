@@ -1,5 +1,5 @@
 from .utils.response import get_response
-from .utils.validate import validate_params
+from .utils.validate import validate_args
 
 
 def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
@@ -11,16 +11,15 @@ def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
     Parameters
     ----------
     {ua, rf, hd}: bool
-        indicates whether useragent | referer | header data required
+        indicates whether useragent | referer | header data requested
 
     Returns
     -------
     response: dict
         useragent | referer | header data as requested
     """
-    # Confirm parameters are valid bools
-    valid_params = validate_params(ua, rf, hd)
-    if not valid_params:
+    valid_args = validate_args(ua, rf, hd)
+    if not valid_args:
         return "Error: ua|rf|hd must be blank or boolean"
 
     response = get_response(ua, rf, hd)

@@ -8,13 +8,15 @@ from .assets import (
 from .select import select_data
 
 
-def get_response(ua: bool, rf: bool, hd: bool) -> dict:
+def get_response(
+    useragent_requested: bool, referer_requested: bool, header_requested: bool
+) -> dict:
     """
     Prepares and returns header data
 
     Parameters
     ----------
-    {ua, rf, hd}: bool
+    {useragent_requested, referer_requested, header_requested}: bool
         indicates whether useragent | referer | header data required
 
     Returns
@@ -23,15 +25,15 @@ def get_response(ua: bool, rf: bool, hd: bool) -> dict:
         useragent | referer | header data as requested
     """
     response_data = dict()
-    # header data
-    if hd:
+
+    if header_requested:
         response_data = HEADER_DATA
-    # referer
-    if rf:
+
+    if referer_requested:
         referer = select_data(REFERERS, REFERER_WEIGHTS)
         response_data["Referer"] = referer
-    # user-agent
-    if ua:
+
+    if useragent_requested:
         useragent = select_data(USERAGENTS, USERAGENT_WEIGHTS)
         response_data["User-Agent"] = useragent
 
