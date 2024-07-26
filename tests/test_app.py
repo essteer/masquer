@@ -3,12 +3,12 @@ from src.masquer.app import masq
 
 
 class TestMasq(unittest.TestCase):
-    def test_calling_masq_without_args_returns_dict_object(self):
+    def test_masq_without_args(self):
         """Calling masq() without args still returns a dict object"""
         self.assertIsInstance(masq(), dict)
         self.assertIsInstance(masq(ua=False, rf=False, hd=False), dict)
 
-    def test_calling_masq_with_valid_boolean_input_args_return_dict_objects(self):
+    def test_masq_with_boolean_args(self):
         """Calling masq() with valid args combinations returns a dict object"""
         self.assertIsInstance(masq(ua=True, rf=False, hd=False), dict)
         self.assertIsInstance(masq(ua=True, rf=True, hd=False), dict)
@@ -25,7 +25,7 @@ class TestMasq(unittest.TestCase):
         self.assertIsInstance(masq(hd=True), dict)
         self.assertIsInstance(masq(hd=False), dict)
 
-    def test_calling_masq_with_invalid_args_returns_error_message(self):
+    def test_masq_with_invalid_args(self):
         """Calling masq() with invalid args returns an error message"""
         error_msg = "Error: ua|rf|hd must be blank or boolean"
         self.assertEqual(masq(0), error_msg)
@@ -36,7 +36,7 @@ class TestMasq(unittest.TestCase):
         self.assertEqual(masq(None), error_msg)
         self.assertEqual(masq(ua=True, rf=True, hd=0), error_msg)
 
-    def test_calling_masq_with_surplus_args_raises_type_error(self):
+    def test_masq_with_surplus_args(self):
         """Calling masq() with surplus args raises a TypeError"""
         with self.assertRaises(TypeError):
             masq(True, True, True, True)

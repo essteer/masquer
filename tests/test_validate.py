@@ -3,7 +3,7 @@ from src.masquer.utils.validate import validate_args
 
 
 class TestValidateParams(unittest.TestCase):
-    def test_calling_validate_args_with_valid_args_returns_true(self):
+    def test_validate_args_with_valid_args(self):
         """Calling validate_args() with valid args returns True"""
         self.assertTrue(validate_args(True, False, False))
         self.assertTrue(validate_args(True, True, False))
@@ -14,7 +14,7 @@ class TestValidateParams(unittest.TestCase):
         self.assertTrue(validate_args(False, False, True))
         self.assertTrue(validate_args(False, False, False))
 
-    def test_calling_validate_args_with_invalid_args_returns_false(self):
+    def test_validate_args_with_invalid_args(self):
         """Calling validate_args() with invalid args returns False"""
         self.assertFalse(validate_args(0, True, True))
         self.assertFalse(validate_args(True, "string", True))
@@ -26,7 +26,7 @@ class TestValidateParams(unittest.TestCase):
         self.assertFalse(validate_args(None, None, None))
         self.assertFalse(validate_args(None, True, True))
 
-    def test_calling_validate_args_with_missing_args_raises_type_error(self):
+    def test_validate_args_with_missing_args(self):
         """Calling validate_args() with missing args raises TypeError"""
         with self.assertRaises(TypeError):
             validate_args(True)
@@ -45,7 +45,7 @@ class TestValidateParams(unittest.TestCase):
         with self.assertRaises(TypeError):
             validate_args(rf=True, hd=True)
 
-    def test_calling_validate_args_with_surplus_args_raises_type_error(self):
+    def test_validate_args_with_surplus_args(self):
         """Calling validate_args() with surplus args raises TypeError"""
         with self.assertRaises(TypeError):
             validate_args(True, True, True, True)
