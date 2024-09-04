@@ -319,9 +319,9 @@ Run `$ hatch build` from the terminal to build the `sdist` and `wheel` targets i
 
 ```console
 $ hatch build
-──────────────────────────────────────────────────────── sdist ─────────────────────────────────────────────────────────
+────────────── sdist ──────────────
 dist/masquer-1.2.2.tar.gz
-──────────────────────────────────────────────────────── wheel ─────────────────────────────────────────────────────────
+────────────── wheel ──────────────
 dist/masquer-1.2.2-py3-none-any.whl
 ```
 
@@ -330,7 +330,15 @@ dist/masquer-1.2.2-py3-none-any.whl
 After a successful build the package is ready to publish on PyPI:
 
 ```console
-$ hatch publish
+$ python3 -m twine upload dist/*
+Uploading distributions to https://upload.pypi.org/legacy/
+Uploading masquer-1.2.2-py3-none-any.whl
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 32.1/32.1 kB • 00:00 • 7.3 MB/s
+Uploading masquer-1.2.2.tar.gz
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 31.0/31.0 kB • 00:00 • 15.5 MB/s
+
+View at:
+https://pypi.org/project/masquer/1.2.2/
 ```
 
 ### Merge to `main`
