@@ -28,7 +28,6 @@ def get_app() -> FastAPI:
             "url": "https://github.com/essteer/masquer/blob/main/LICENSE",
         },
     )
-    # Add routes
     app.include_router(router)
 
     return app
