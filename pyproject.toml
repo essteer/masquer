@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "masquer"
 dynamic = ["version"]
-description = "Weighted-random user-agent and referer data for GET requests"
+description = "A tool to generate random user-agent and referer data for HTTP requests"
 authors = [{ name = "Elliott Steer", email = "essteer@pm.me" }]
 dependencies = []
 requires-python = ">=3.9"
@@ -23,16 +23,6 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-]
-
-[project.optional-dependencies]
-dev = [
-    "beautifulsoup4==4.12.3",
-    "fastapi==0.111.0", 
-    "hatch==1.11.1", 
-    "hatchling==1.24.2", 
-    "pre-commit==3.7.1", 
-    "ruff==0.4.4"
 ]
 
 [project.urls]
@@ -58,3 +48,13 @@ exclude = [
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/masquer"]
+
+[tool.uv]
+dev-dependencies = [
+    "ruff==0.4.4",
+    "beautifulsoup4==4.12.3",
+    "fastapi==0.111.0",
+    "hatch==1.11.1",
+    "hatchling==1.24.2",
+    "pre-commit==3.7.1",
+]
