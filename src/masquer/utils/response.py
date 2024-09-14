@@ -6,7 +6,7 @@ from .assets import (
     USERAGENT_WEIGHTS,
 )
 from .select import select_data
-
+from .sec_ch import append_sec_ch
 
 def get_response(
     useragent_requested: bool, referer_requested: bool, header_requested: bool
@@ -27,7 +27,7 @@ def get_response(
     response_data = dict()
 
     if header_requested:
-        response_data = HEADER_DATA
+        response_data = dict(HEADER_DATA)
 
     if referer_requested:
         referer = select_data(REFERERS, REFERER_WEIGHTS)
@@ -36,5 +36,7 @@ def get_response(
     if useragent_requested:
         useragent = select_data(USERAGENTS, USERAGENT_WEIGHTS)
         response_data["User-Agent"] = useragent
+        if(header_requested):
+            response_data = append_sec_ch(useragent, response_data)
 
     return response_data

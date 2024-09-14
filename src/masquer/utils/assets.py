@@ -18,6 +18,10 @@ REFERERS = [
     "https://duckduckgo.com",
     "https://www.baidu.com",
 ]
+SEC_CH_UA = {
+    'chrome/128' : '"Chromium";v="128", "Not;A=Brand";v="24", "%c";v="128"',
+    'chrome/127' : '"Not)A;Brand";v="99", "%c";v="127", "Chromium";v="127"'
+}
 REFERER_WEIGHTS = [79.65, 11.98, 3.21, 2.47, 0.88, 0.56]
 USERAGENTS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.3",
