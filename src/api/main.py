@@ -20,7 +20,7 @@ def get_app() -> FastAPI:
     """
     app = FastAPI(
         title="Masquer API",
-        summary="A tool to generate random user-agent and referer data for GET requests.",
+        summary="A tool to generate random user-agent and referer data for HTTP requests.",
         description=DESCRIPTION,
         version=__version__,
         license_info={

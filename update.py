@@ -1,6 +1,7 @@
 import json
 import os
 import requests
+import sys
 from bs4 import BeautifulSoup
 
 
@@ -21,10 +22,11 @@ def update_useragents() -> bool:
         with open(os.path.join(ASSETS_DIR, "useragents.json"), "w") as f:
             json.dump(json_string, f)
 
+        print(f"{sys.argv[0]}: fetched useragent data")
         return True
 
     except Exception as e:
-        print(f"Error fetching useragent data: {e}")
+        print(f"{sys.argv[0]}: error fetching useragent data — {e}")
         return False
 
 
@@ -65,10 +67,11 @@ def update_referers() -> bool:
         with open(os.path.join(ASSETS_DIR, "referers.json"), "w") as f:
             json.dump(output, f)
 
+        print(f"{sys.argv[0]}: fetched referer data")
         return True
 
     except Exception as e:
-        print(f"Error fetching referer data: {e}")
+        print(f"{sys.argv[0]}: error fetching referer data — {e}")
         return False
 
 
@@ -123,14 +126,15 @@ def update_assets() -> bool:
             f.write("USERAGENT_WEIGHTS = " + str(useragent_weights))
             f.write("\n")
 
+        print(f"{sys.argv[0]}: saved useragent and referer JSON data to assets.py")
         return True
 
     except FileNotFoundError:
-        print("Error: JSON asset(s) missing")
+        print(f"{sys.argv[0]}: asset update error — JSON assets not found")
         return False
 
     except Exception as e:
-        print(f"{type(e)}: {e}")
+        print(f"{sys.argv[0]}: asset update error — {type(e)}: {e}")
         return False
 
 
@@ -139,9 +143,9 @@ if __name__ == "__main__":
     rf = update_referers()
     if ua and rf:
         assets_updated = update_assets()
-        if not assets_updated:
-            print("Failed to update assets.py")
+        if assets_updated:
+            sys.exit(0)
         else:
-            print("Update successful")
+            sys.exit(2)
     else:
-        print("Failed to update JSON assets")
+        sys.exit(3)
