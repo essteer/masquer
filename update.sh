@@ -10,10 +10,21 @@ set -eu
 
 this_script=$(basename "$0")
 python_script="update.py"
+log_filepath="logs/app.log"
 venv_path=".venv/bin/activate"
 
+function timestamp() {
+  date +"%Y-%m-%d %H:%M:%S"
+}
+
+if [[ ! -f "${log_filepath}" ]]; then
+  mkdir -p logs
+  touch logs/app.log
+  echo "$(timestamp) - INFO - ${this_script} - Log file created at ${log_filepath}" | tee -a "${log_filepath}"
+fi
+  
 if [[ ! -f "${venv_path}" ]]; then
-  echo "${this_script}: error — virtual environment not found at ${venv_path}"
+  echo "$(timestamp) - ERROR - ${this_script} - Virtual environment not found at ${venv_path}" | tee -a "${log_filepath}"
   echo "  create a new virtual environment or update 'venv_path' in ${this_script}"
   exit 1
 fi
@@ -21,7 +32,7 @@ fi
 source "${venv_path}"
 
 if [[ ! -f "${python_script}" ]]; then
-  echo "${this_script}: error — ${python_script} not found"
+  echo "$(timestamp) - ERROR - ${this_script} - ${python_script} not found" | tee -a "${log_filepath}"
   deactivate
   exit 1
 fi
@@ -31,17 +42,16 @@ exit_code=$?
 
 case ${exit_code} in
   0)
-    echo "${this_script}: asset update successful"
+    echo "$(timestamp) - INFO - ${this_script} - Asset update OK" | tee -a "${log_filepath}"
     ;;
   2)
-    echo "${this_script}: asset update failed — check file paths in ${python_script}"
+    echo "$(timestamp) - ERROR - ${this_script} - Asset update failed: check file paths in ${python_script}" | tee -a "${log_filepath}"
     ;;
   3)
-    echo "${this_script}: asset update failed — ensure BeautifulSoup4 is"
-    echo "  installed and check source URLs in ${python_script} are live"
+    echo "$(timestamp) - ERROR - ${this_script} - Asset update failed: ensure BeautifulSoup4 is installed and check source URLs in ${python_script} are live" | tee -a "${log_filepath}"
     ;;
   *)
-    echo "${this_script}: asset update failed with unexpected exit code ${exit_code}"
+    echo "$(timestamp) - ERROR - ${this_script} - Asset update failed with unexpected exit code ${exit_code}" | tee -a "${log_filepath}"
     ;;
 esac
 
