@@ -1,14 +1,9 @@
-import logging
+from src.logging_config import setup_logging, get_logger
 from .utils.response import get_response
 from .utils.validate import validate_args
 
-logger = logging.getLogger(__name__)
-handler = logging.FileHandler("app.log", mode="a", encoding="utf-8")
-logger.addHandler(handler)
-formatter = logging.Formatter(
-    "{asctime} - {levelname} - {message}", style="{", datefmt="%Y-%m-%d %H:%M:%S"
-)
-handler.setFormatter(formatter)
+setup_logging(__name__)
+logger = get_logger(__name__)
 
 
 def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
@@ -28,12 +23,19 @@ def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
         useragent | referer | header data as requested
     """
     valid_args = validate_args(ua, rf, hd)
+
     if not valid_args:
         logger.warning(f"Invalid args: [{ua=} {rf=} {hd=}]")
-        return "Error: ua|rf|hd must be blank or boolean"
+        return {"error": "ua|rf|hd must be blank or boolean"}
 
     logger.debug(f"Valid args: [{ua=} {rf=} {hd=}]")
-    response = get_response(ua, rf, hd)
-    logger.debug(f"Response: [{response}]")
+
+    try:
+        response = get_response(ua, rf, hd)
+        logger.debug(f"Response: [{response}]")
+
+    except Exception as e:
+        logger.error(f"Error getting response: {e}")
+        return {"error": "Failed to retrieve response"}
 
     return response
