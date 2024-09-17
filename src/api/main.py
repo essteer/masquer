@@ -1,8 +1,12 @@
+import sys
+import os
 from fastapi import FastAPI
-from masquer.__about__ import __version__
-from src.logging_config import setup_logging, get_logger
+from ..masquer.__about__ import __version__
+from ..logging_config import setup_logging, get_logger
 from .routes import router
 
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 setup_logging(__name__)
 logger = get_logger(__name__)

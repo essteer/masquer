@@ -36,7 +36,7 @@ def setup_logging(name):
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
-    logger.info("Logging system init OK")
+    logger.debug("Logging system init OK")
 
 
 def get_logger(name):

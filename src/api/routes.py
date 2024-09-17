@@ -1,8 +1,8 @@
 from typing import Union
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
-from masquer import masq
-from src.logging_config import setup_logging, get_logger
+from ..masquer import masq
+from ..logging_config import setup_logging, get_logger
 
 
 setup_logging(__name__)
