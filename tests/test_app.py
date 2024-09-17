@@ -27,7 +27,7 @@ class TestMasq(unittest.TestCase):
 
     def test_masq_with_invalid_args(self):
         """Calling masq() with invalid args returns an error message"""
-        error_msg = "Error: ua|rf|hd must be blank or boolean"
+        error_msg = {"error": "ua|rf|hd must be blank or boolean"}
         self.assertEqual(masq(0), error_msg)
         self.assertEqual(masq(ua=0), error_msg)
         self.assertEqual(masq(rf=0), error_msg)

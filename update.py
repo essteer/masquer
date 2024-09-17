@@ -3,7 +3,11 @@ import os
 import requests
 import sys
 from bs4 import BeautifulSoup
+from src.logging_config import setup_logging, get_logger
 
+
+setup_logging(__name__)
+logger = get_logger(__name__)
 
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 ASSETS_DIR = os.path.join(ROOT_DIR, "assets")
@@ -22,11 +26,11 @@ def update_useragents() -> bool:
         with open(os.path.join(ASSETS_DIR, "useragents.json"), "w") as f:
             json.dump(json_string, f)
 
-        print(f"{sys.argv[0]}: fetched useragent data")
+        logger.info("Fetched useragent data")
         return True
 
     except Exception as e:
-        print(f"{sys.argv[0]}: error fetching useragent data — {e}")
+        logger.error(f"Error fetching useragent data: {e}")
         return False
 
 
@@ -67,11 +71,11 @@ def update_referers() -> bool:
         with open(os.path.join(ASSETS_DIR, "referers.json"), "w") as f:
             json.dump(output, f)
 
-        print(f"{sys.argv[0]}: fetched referer data")
+        logger.info("Fetched referer data")
         return True
 
     except Exception as e:
-        print(f"{sys.argv[0]}: error fetching referer data — {e}")
+        logger.error(f"Error fetching referer data: {e}")
         return False
 
 
@@ -126,15 +130,15 @@ def update_assets() -> bool:
             f.write("USERAGENT_WEIGHTS = " + str(useragent_weights))
             f.write("\n")
 
-        print(f"{sys.argv[0]}: saved useragent and referer JSON data to assets.py")
+        logger.info("Saved useragent and referer JSON data to assets.py")
         return True
 
     except FileNotFoundError:
-        print(f"{sys.argv[0]}: asset update error — JSON assets not found")
+        logger.error("Asset update error: JSON assets not found")
         return False
 
     except Exception as e:
-        print(f"{sys.argv[0]}: asset update error — {type(e)}: {e}")
+        logger.error(f"Asset update error: {type(e)}: {e}")
         return False
 
 
