@@ -3,6 +3,7 @@ from masquer.__about__ import __version__
 from src.logging_config import setup_logging, get_logger
 from .routes import router
 
+
 setup_logging(__name__)
 logger = get_logger(__name__)
 
@@ -40,7 +41,7 @@ def get_app() -> FastAPI:
         return app
 
     except Exception as e:
-        logger.error(f"Error initialising FastAPI app: {e}")
+        logger.error(f"FastAPI app init error: {e}")
 
 
 app = get_app()

@@ -16,8 +16,8 @@ def get_masq(
     rf: Union[bool, None] = False,
     hd: Union[bool, None] = False,
 ):
-    logger.info(f"Request received: [{ua=} {rf=} {hd=}]")
+    logger.info(f"Request: [{ua=} {rf=} {hd=}]")
     response = masq(ua, rf, hd)
-    logger.info(f"Response sent: [{response}]")
+    logger.info(f"Response: [{response}]")
 
     return JSONResponse(content=response)
