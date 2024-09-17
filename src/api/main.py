@@ -1,7 +1,15 @@
+import sys
+import os
 from fastapi import FastAPI
-from masquer.__about__ import __version__
+from ..masquer.__about__ import __version__
+from ..logging_config import setup_logging, get_logger
 from .routes import router
 
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+setup_logging(__name__)
+logger = get_logger(__name__)
 
 DESCRIPTION = """
 Use `masquer` to obtain any combination of a random user-agent, referer or header data template, then use this with a library like [`requests`](https://github.com/psf/requests) to control the session data you send to other services.
@@ -13,24 +21,31 @@ Weighted random selections are made from those lists to approximate authentic he
 A basic header template with common attributes — like [`"Upgrade-Insecure-Requests": "1"`](https://stackoverflow.com/questions/31950470/what-is-the-upgrade-insecure-requests-http-header/32003517#32003517) — is also provided and defaults to the most common referer and user-agent data from the above lists.
 """
 
+SUMMARY = "A tool to generate random user-agent and referer data for HTTP requests."
+
 
 def get_app() -> FastAPI:
     """
     Create a FastAPI app with the specified attributes
     """
-    app = FastAPI(
-        title="Masquer API",
-        summary="A tool to generate random user-agent and referer data for HTTP requests.",
-        description=DESCRIPTION,
-        version=__version__,
-        license_info={
-            "name": "MIT License",
-            "url": "https://github.com/essteer/masquer/blob/main/LICENSE",
-        },
-    )
-    app.include_router(router)
+    try:
+        app = FastAPI(
+            title="Masquer API",
+            summary=SUMMARY,
+            description=DESCRIPTION,
+            version=__version__,
+            license_info={
+                "name": "MIT License",
+                "url": "https://github.com/essteer/masquer/blob/main/LICENSE",
+            },
+        )
+        app.include_router(router)
+        logger.info("FastAPI app init OK")
 
-    return app
+        return app
+
+    except Exception as e:
+        logger.error(f"FastAPI app init error: {e}")
 
 
 app = get_app()
