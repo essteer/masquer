@@ -18,7 +18,7 @@ def setup_logging(name):
     file_handler = RotatingFileHandler(
         log_filepath, maxBytes=10 * 1024 * 1024, backupCount=5, encoding="utf-8"
     )
-    file_handler.setLevel(logging.WARNING)
+    file_handler.setLevel(logging.INFO)
 
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)

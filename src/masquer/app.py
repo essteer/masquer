@@ -2,6 +2,7 @@ from src.logging_config import setup_logging, get_logger
 from .utils.response import get_response
 from .utils.validate import validate_args
 
+
 setup_logging(__name__)
 logger = get_logger(__name__)
 
