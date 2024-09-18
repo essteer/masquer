@@ -8,11 +8,11 @@
 </p>
 
 <p align="center">
+  <a href="https://astral.sh"><img src="https://img.shields.io/badge/Astral-261230.svg?style=flat&logo=Astral&labelColor=555&logoColor=white"></a>
   <a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
   <a href="https://github.com/tiangolo/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white"></a>
   <a href="https://github.com/pypa/hatch"><img src="https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg"></a>
-  <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json"></a>
-</p>
+  </p>
 
 <p align="center">
 A tool to generate random user-agent and referer data for HTTP requests.
@@ -157,7 +157,7 @@ $ curl -X GET \
 Run the `masquer API` from a container on the `masquer` Docker image as follows:
 
 ```console
-$ docker run -d --name masquer -p 8000:8000 esteer/masquer
+$ docker run -d --name masquer -p 8000:8000 essteer/masquer
 ```
 
 Then interact as per the FastAPI instructions above.
