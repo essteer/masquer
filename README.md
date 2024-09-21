@@ -68,7 +68,7 @@ $ curl -X GET 'https://masquer.fly.dev/masq?ua=true&rf=true' -H 'accept: applica
 
 Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or see [more details below](#examples) in the package documentation.
 
-[:arrow_up:](#title)
+[:arrow_up: to top](#title)
 
 ## Python package
 
@@ -186,7 +186,7 @@ To get the header-data with randomly selected user-agent and/or referer data, pa
 }
 ```
 
-[:arrow_up:](#title)
+[:arrow_up: to top](#title)
 
 ## Git repository
 
@@ -256,7 +256,7 @@ Then follow the instructions FastAPI provides in the terminal.
 
 To view the API's interactive documentation, run the app and navigate to `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`.
 
-[:arrow_up:](#title)
+[:arrow_up: to top](#title)
 
 ## Docker image
 
@@ -278,4 +278,4 @@ $ docker run -d --name masquer -p 8000:8000 essteer/masquer
 
 Then interact as per the [API instructions](#api) above.
 
-[:arrow_up:](#title)
+[:arrow_up: to top](#title)
