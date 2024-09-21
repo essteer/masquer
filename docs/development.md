@@ -51,7 +51,7 @@ $ cd masquer
 $ uv sync --all-extras
 ```
 
-[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+[<h3 align="center">:arrow_up:</h3>](#title)
 
 ## Asset updates
 
@@ -73,7 +73,7 @@ In case of issues updating the assets, ensure all dependencies are installed and
 
 If using custom JSON data, the `update_assets()` function inside `update.py` can still be used to sync changes with the `assets.py` file inside the `masquer` package.
 
-[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+[<h3 align="center">:arrow_up:</h3>](#title)
 
 ## Docker
 
@@ -83,7 +83,7 @@ TBC
 
 A `docker.yaml` workflow is in place to build and publish a Docker image when a new release is made on the `main` branch &mdash; see the [`deployment`](https://github.com/essteer/masquer/blob/main/docs/deployment.md) notes for more details.
 
-[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+[<h3 align="center">:arrow_up:</h3>](#title)
 
 ## Formatting
 
@@ -99,7 +99,7 @@ A pre-commit hook is configured in `.pre-commit-config.yaml` to check and format
 
 A GitHub action is configured in `.github/workflows/ruff.yaml` to run Ruff checks for any push or pull request to the `main` branch.
 
-[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+[<h3 align="center">:arrow_up:</h3>](#title)
 
 ## GitHub Actions
 
@@ -110,13 +110,13 @@ GitHub actions are configured in `.github/workflows` and are in place for all pu
 
 A `docker.yaml` workflow is in place to build and publish a Docker image when a new release is made on the `main` branch &mdash; see the [`deployment`](https://github.com/essteer/masquer/blob/main/docs/deployment.md) notes for more details.
 
-[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+[<h3 align="center">:arrow_up:</h3>](#title)
 
 ## Logs
 
 TBC
 
-[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+[<h3 align="center">:arrow_up:</h3>](#title)
 
 ## Tests
 
@@ -150,4 +150,4 @@ A GitHub action is configured in `.github/workflows/test.yaml` to run the unit t
 
 The tests are run on a matrix basis for Linux (Ubuntu), macOS and Windows on Python versions from `3.9` to `3.12` (inclusive).
 
-[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+[<h3 align="center">:arrow_up:</h3>](#title)
