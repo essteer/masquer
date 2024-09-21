@@ -51,7 +51,7 @@ $ cd masquer
 $ uv sync --all-extras
 ```
 
-[<h3 align="center">:arrow_up:</h3>](#title)
+[:arrow_up:](#title)
 
 ## Asset updates
 
@@ -73,7 +73,7 @@ In case of issues updating the assets, ensure all dependencies are installed and
 
 If using custom JSON data, the `update_assets()` function inside `update.py` can still be used to sync changes with the `assets.py` file inside the `masquer` package.
 
-[<h3 align="center">:arrow_up:</h3>](#title)
+[:arrow_up:](#title)
 
 ## Docker
 
@@ -83,7 +83,7 @@ TBC
 
 A `docker.yaml` workflow is in place to build and publish a Docker image when a new release is made on the `main` branch &mdash; see the [`deployment`](https://github.com/essteer/masquer/blob/main/docs/deployment.md) notes for more details.
 
-[<h3 align="center">:arrow_up:</h3>](#title)
+[:arrow_up:](#title)
 
 ## Formatting
 
@@ -99,7 +99,7 @@ A pre-commit hook is configured in `.pre-commit-config.yaml` to check and format
 
 A GitHub action is configured in `.github/workflows/ruff.yaml` to run Ruff checks for any push or pull request to the `main` branch.
 
-[<h3 align="center">:arrow_up:</h3>](#title)
+[:arrow_up:](#title)
 
 ## GitHub Actions
 
@@ -110,13 +110,13 @@ GitHub actions are configured in `.github/workflows` and are in place for all pu
 
 A `docker.yaml` workflow is in place to build and publish a Docker image when a new release is made on the `main` branch &mdash; see the [`deployment`](https://github.com/essteer/masquer/blob/main/docs/deployment.md) notes for more details.
 
-[<h3 align="center">:arrow_up:</h3>](#title)
+[:arrow_up:](#title)
 
 ## Logs
 
 TBC
 
-[<h3 align="center">:arrow_up:</h3>](#title)
+[:arrow_up:](#title)
 
 ## Tests
 
@@ -150,4 +150,4 @@ A GitHub action is configured in `.github/workflows/test.yaml` to run the unit t
 
 The tests are run on a matrix basis for Linux (Ubuntu), macOS and Windows on Python versions from `3.9` to `3.12` (inclusive).
 
-[<h3 align="center">:arrow_up:</h3>](#title)
+[:arrow_up:](#title)
