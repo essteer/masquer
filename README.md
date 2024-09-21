@@ -1,4 +1,4 @@
-<h1 align="center">Masquer</h1>
+<h1 align="center" id="title">Masquer</h1>
 
 <p align="center">
   <a href="https://github.com/essteer/masquer/actions/workflows/test.yaml"><img src="https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg"></a>
@@ -36,6 +36,10 @@ It does not provide anonymity — that is a much more complex topic, and the ope
 
 ## Documentation
 
+The sections that follow describe different ways to use `masquer`.
+
+See the `docs` directory for notes on development and deployment.
+
 - [API](#api)
 - [Python package](#python-package)
   - [Installation](#installation)
@@ -48,7 +52,7 @@ It does not provide anonymity — that is a much more complex topic, and the ope
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-masquer-009688?style=flat&logo=FastAPI&logoColor=white)](https://masquer.fly.dev/docs)
 
-An API for `masquer` is in deployment at `https://masquer.fly.dev/masq` &mdash; try it out with the interactive [Swagger UI](https://masquer.fly.dev/docs) or [ReDoc](https://masquer.fly.dev/redoc) documentation as preferred.
+An API for `masquer` is in deployment at `https://masquer.fly.dev/masq` &mdash; try it out with the interactive [Swagger UI](https://masquer.fly.dev/docs) or [ReDoc](https://masquer.fly.dev/redoc) documentation.
 
 The API returns JSON objects, making it compatible with any language that can make HTTP requests and parse JSON.
 
@@ -64,17 +68,20 @@ $ curl -X GET 'https://masquer.fly.dev/masq?ua=true&rf=true' -H 'accept: applica
 
 Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or see [more details below](#examples) in the package documentation.
 
+[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+
 ## Python package
 
 [![](https://img.shields.io/badge/PyPI-masquer-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
 
 ### Installation
 
-The simplest way to use `masquer` is to install it into the virtual environment of an existing Python project.
+To use the `masquer` Python package, create and activate a virtual environment then install `masquer` using a package manager.
 
-Activate the project's virtual environment, then install `masquer` using a package manager. The below example uses [Astral's](https://docs.astral.sh/uv) `uv` &mdash; substitute `pip` by dropping "`uv`" or use another tool as needed:
+The below example uses [Astral's](https://docs.astral.sh/uv) `uv` &mdash; substitute `pip` by dropping "`uv`" or use another package manager as preferred:
 
 ```console
+$ uv venv
 $ source .venv/bin/activate
 $ uv pip install masquer
 ```
@@ -99,10 +106,12 @@ The `masq` function accepts up to three boolean parameters...
 )
 ```
 
-...and returns the response in a dict object:
+...and returns the response as a dict object:
 
 ```python
-{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.3'}
+{
+  'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.'
+}
 ```
 
 ### Examples
@@ -164,10 +173,10 @@ Each of the above function calls would return the following:
 
 #### Header-data with random user-agent and referer
 
-To get the header-data with randomly selected user-agent and/or referer data, set the argument for those parameters to `True` in addition to the `hd` parameter as per the below examples:
+To get the header-data with randomly selected user-agent and/or referer data, pass those arguments as `True` in addition to the `hd` parameter as per the below examples:
 
 ```python
->>> random_header = masq(ua=True, rf=True, hd=True)
+>>> random_header = masq(rf=True, hd=True)  # ua=True by default
 >>> random_header
 {
   # ...
@@ -177,69 +186,96 @@ To get the header-data with randomly selected user-agent and/or referer data, se
 }
 ```
 
+[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+
 ## Git repository
 
 [![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
-Clone the `masquer` repo for the full source code. The repo includes the JSON source files used to generate the header data, a script to sync the programme if updates are made to the JSON files, and a test suite.
+Clone the `masquer` repo for the full source code, including the FastAPI app used to host the [API](#api) introduced above. 
+
+The repo includes the JSON source files used to generate the header data, a script to update the JSON content to the latest data, and a test suite.
 
 ```console
 $ git clone git@github.com:essteer/masquer
 ```
 
-The functional code within the package `src` directory has no dependencies beyond built-in Python modules. To make changes to a cloned version of the repo, optionally install the `tool.uv.dev-dependencies` declared in the `pyproject.toml` file.
+The package code within the `src/masquer` directory has no dependencies beyond built-in Python modules, so can be run right away in a virtual environment.
 
-First create and activate a virtual environment — the below example uses [Astral's](https://astral.sh/blog/uv) `uv`; substitute `pip` or use another package manager as needed — then install the `dev-dependencies`:
+The `update.sh` shell script in the root directory updates the `header.json` and `referer.json` files in the `assets` directory to the latest versions, then uses this data to update the `assets.py` file used by the `masquer` package.
 
-![](https://img.shields.io/badge/Linux-FCC624.svg?style=flat&logo=Linux&logoColor=black)
-![](https://img.shields.io/badge/macOS-000000.svg?style=flat&logo=Apple&logoColor=white)
+To use the `update.sh` script first install Beautiful Soup into the virtual environment:
 
 ```console
-$ uv venv
 $ source .venv/bin/activate
-$ uv pip install fastapi==0.111.0 hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
+$ uv pip install beautifulsoup4==4.12.3
 ```
 
-![](https://img.shields.io/badge/Windows-0078D4.svg?style=flat&logo=Windows&logoColor=white)
+Then grant execution permissions to `update.sh` and run it &mdash; the output should appear similar to that displayed below:
 
 ```console
-$ uv venv
-$ .venv\Scripts\activate
-$ uv pip install fastapi==0.111.0 hatchling==1.24.2 pre-commit==3.7.1 ruff==0.4.4
+$ chmod +x update.sh
+$ ./update.sh
+2024-09-17 14:34:03 - INFO - update.py:29 - Fetched user-agent data
+2024-09-17 14:34:04 - INFO - update.py:74 - Fetched referer data
+2024-09-17 14:34:04 - INFO - update.py:133 - Saved user-agent and referer JSON data to assets.py
+2024-09-17 14:34:04 - INFO - update.sh - Asset update OK
 ```
+
+If interested in making changes to the repo, see the `development notes` for additional details.
 
 ### FastAPI
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-masquer_API-009688?style=flat&logo=FastAPI&logoColor=white)](https://masquer.fly.dev/docs)
+[![FastAPI](https://img.shields.io/badge/FastAPI-masquer-009688?style=flat&logo=FastAPI&logoColor=white)](https://masquer.fly.dev/docs)
 
-The GitHub repo includes `masquer API`, a FastAPI version of `masquer`.
+The Git repo includes the [FastAPI version](#api) of `masquer` that is introduced above and hosted at [`https://masquer.fly.dev`](https://masquer.fly.dev/docs) &mdash; the relevant code is located at `src/api`.
 
 To self-host the API, install the `FastAPI` optional dependency as declared in the `pyproject.toml` file. 
 
-Activate the API from the root directory via:
+```console
+$ source .venv/bin/activate
+$ uv pip install fastapi==0.111.0
+```
+
+FastAPI runs on localhost port `8000` by default &mdash; to amend this change the relevant uvicorn argument in `src/api/main.py`:
+
+```python
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+```
+
+Run the app from the root directory via:
 
 ```console
 $ fastapi run src/api/main.py
 ```
 
-Then follow the instructions provided by FastAPI in the terminal.
+Then follow the instructions FastAPI provides in the terminal.
 
-By default, the FastAPI app will run on localhost. To view the API documentation, run the API and navigate to `http://127.0.0.1:8000/docs`.
+To view the API's interactive documentation, run the app and navigate to `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`.
 
-### Docker
+[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
+
+## Docker image
 
 [![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
 
-For no good reason, `masquer` is also available as a `Docker` image:
+For no good reason, `masquer` is also available as a `Docker` image.
+
+To run `masquer` from a container, first pull the image from [DockerHub](https://hub.docker.com/r/essteer/masquer):
 
 ```console
 $ docker pull essteer/masquer
 ```
 
-Run the `masquer` API from a container on the `masquer` Docker image as follows:
+Launch a container using the `masquer` image as follows:
 
 ```console
 $ docker run -d --name masquer -p 8000:8000 essteer/masquer
 ```
 
 Then interact as per the [API instructions](#api) above.
+
+[<h3 align="center"><svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 64 64"><path fill="#1b75bb" d="M63.667 57.064c0 3.812-3.07 6.9-6.86 6.9H6.86c-3.788 0-6.86-3.088-6.86-6.9V6.896C0 3.088 3.072 0 6.86 0h49.946c3.79 0 6.86 3.088 6.86 6.896v50.168z"/><path fill="#fff" d="M15.937 28.09L31.795 9.578l15.938 18.334c-.191 2.574-1.894 4.593-3.981 4.603l-3.54.018l.09 16.704c.012 2.81-2.245 5.1-5.04 5.117l-6.574.034c-2.798.012-5.079-2.256-5.092-5.065l-.088-16.7l-3.538.02c-2.086.007-3.808-1.985-4.03-4.553"/></svg></h3>](#title)
