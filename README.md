@@ -12,7 +12,7 @@
   <a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
   <a href="https://github.com/tiangolo/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white"></a>
   <a href="https://github.com/pypa/hatch"><img src="https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg"></a>
-  </p>
+</p>
 
 <p align="center">
 A tool to generate random user-agent and referer data for HTTP requests.
@@ -38,7 +38,7 @@ It does not provide anonymity — that is a much more complex topic, and the ope
 
 The sections that follow describe different ways to use `masquer`.
 
-See the `docs` directory for notes on development and deployment.
+For development purposes see the `docs` directory for notes on development, deployment and Docker.
 
 - [API](#api)
 - [Python package](#python-package)
@@ -68,11 +68,9 @@ $ curl -X GET 'https://masquer.fly.dev/masq?ua=true&rf=true' -H 'accept: applica
 
 Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or see [more details below](#examples) in the package documentation.
 
-[:arrow_up: to top](#title)
-
-<p align="center">
-<a href="#" style="text-decoration:none;">:arrow_up:</a>
-</p>
+<h3 align="center">
+  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+</h3>
 
 ## Python package
 
@@ -190,7 +188,9 @@ To get the header-data with randomly selected user-agent and/or referer data, pa
 }
 ```
 
-[:arrow_up: to top](#title)
+<h3 align="center">
+  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+</h3>
 
 ## Git repository
 
@@ -260,13 +260,15 @@ Then follow the instructions FastAPI provides in the terminal.
 
 To view the API's interactive documentation, run the app and navigate to `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`.
 
-[:arrow_up: to top](#title)
+<h3 align="center">
+  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+</h3>
 
 ## Docker image
 
 [![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
 
-For no good reason, `masquer` is also available as a `Docker` image.
+A Docker image for `masquer` has been developed for production use, and is publicly available.
 
 To run `masquer` from a container, first pull the image from [DockerHub](https://hub.docker.com/r/essteer/masquer):
 
@@ -282,4 +284,6 @@ $ docker run -d --name masquer -p 8000:8000 essteer/masquer
 
 Then interact as per the [API instructions](#api) above.
 
-[:arrow_up: to top](#title)
+<h3 align="center">
+  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+</h3>
