@@ -70,6 +70,10 @@ Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or s
 
 [:arrow_up: to top](#title)
 
+<p align="center">
+<a href="#" style="text-decoration:none;">:arrow_up:</a>
+</p>
+
 ## Python package
 
 [![](https://img.shields.io/badge/PyPI-masquer-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
