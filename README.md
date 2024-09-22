@@ -11,6 +11,7 @@
   <a href="https://astral.sh"><img src="https://img.shields.io/badge/Astral-261230.svg?style=flat&logo=Astral&labelColor=555&logoColor=white"></a>
   <a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
   <a href="https://github.com/tiangolo/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white"></a>
+  <a href="https://masquer.fly.dev/docs"><img src="https://img.shields.io/badge/Fly.io-24175B.svg?style=flat&labelColor=555&logo=flydotio&logoColor=white"></a>
   <a href="https://github.com/pypa/hatch"><img src="https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg"></a>
 </p>
 

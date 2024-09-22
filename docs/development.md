@@ -1,26 +1,10 @@
-<h1 align="center" id="title">Masquer &mdash; development notes</h1>
+<h1 align="center" id="title">Masquer &mdash; development</h1>
 
 <p align="center">
-  <a href="https://github.com/essteer/masquer/actions/workflows/test.yaml"><img src="https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg"></a>
-  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/PyPI-v1.2.2-3775A9.svg?style=flat&logo=PyPI&logoColor=white"></a>
-  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/Python-3.9_~_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white"></a>
-  <a href="https://snyk.io/test/github/essteer/masquer"><img src="https://snyk.io/test/github/essteer/masquer/badge.svg?name=Snyk&style=flat&logo=Snyk"></a>
+  Notes for use in development, and pre-deployment testing stages.
 </p>
 
-<p align="center">
-  <a href="https://astral.sh"><img src="https://img.shields.io/badge/Astral-261230.svg?style=flat&logo=Astral&labelColor=555&logoColor=white"></a>
-  <a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
-  <a href="https://github.com/tiangolo/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white"></a>
-  <a href="https://github.com/pypa/hatch"><img src="https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg"></a>
-  </p>
-
-<p align="center">
-A tool to generate random user-agent and referer data for HTTP requests.
-</p>
-
-## Development
-
-The sections that follow contain notes for use in developing `masquer`.
+## Contents
 
 - [Git repository](#git-repository)
 - [Asset updates](#asset-updates)

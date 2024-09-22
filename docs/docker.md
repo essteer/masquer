@@ -1,26 +1,10 @@
 <h1 align="center" id="title">Masquer &mdash; Docker notes</h1>
 
 <p align="center">
-  <a href="https://github.com/essteer/masquer/actions/workflows/test.yaml"><img src="https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg"></a>
-  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/PyPI-v1.2.2-3775A9.svg?style=flat&logo=PyPI&logoColor=white"></a>
-  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/Python-3.9_~_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white"></a>
-  <a href="https://snyk.io/test/github/essteer/masquer"><img src="https://snyk.io/test/github/essteer/masquer/badge.svg?name=Snyk&style=flat&logo=Snyk"></a>
+  Notes for use in creating, testing, and publishing the <code>masquer</code> Docker image.
 </p>
 
-<p align="center">
-  <a href="https://astral.sh"><img src="https://img.shields.io/badge/Astral-261230.svg?style=flat&logo=Astral&labelColor=555&logoColor=white"></a>
-  <a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
-  <a href="https://github.com/tiangolo/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white"></a>
-  <a href="https://github.com/pypa/hatch"><img src="https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg"></a>
-  </p>
-
-<p align="center">
-A tool to generate random user-agent and referer data for HTTP requests.
-</p>
-
-## Docker
-
-The sections that follow contain notes for use in creating, testing, and publishing the `masquer` Docker image.
+## Contents
 
 - [Overview](#overview)
 - [Local development](#local-development)
@@ -86,7 +70,7 @@ Note the first three characters of the image's `sha256` for subsequent use &mdas
 
 ### Test container
 
-A container can then be created using the first two or three characters of the image's `sha256`, and the output will display the `sha256` of the container just created:
+Use the first three characters of the image's `sha256` to launch a container, and the output will display the `sha256` of the container just created:
 
 ```console
 $ docker run -d --name test-masquer -p 8000:8000 1c3
@@ -129,7 +113,7 @@ $ curl -X GET 'http://127.0.0.1:8000/masq?ua=true&rf=true&hd=false' -H 'accept: 
 
 ### Check logs on container
 
-If the API is working as expected, stop the container daemon and then run a shell on the container in the foreground to check that expected logs are present.
+If the API is working as expected, stop the container daemon and then run a shell on the container in the foreground to check that expected logs were generated.
 
 ```console
 $ docker stop 392  # change '392' to match the container's ID
