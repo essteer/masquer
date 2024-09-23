@@ -19,6 +19,32 @@ The user-agent data is drawn from [this list](https://www.useragents.me/) of the
 Weighted random selections are made from those lists to approximate authentic header data patterns.
 
 A basic header template with common attributes — like [`"Upgrade-Insecure-Requests": "1"`](https://stackoverflow.com/questions/31950470/what-is-the-upgrade-insecure-requests-http-header/32003517#32003517) — is also provided and defaults to the most common referer and user-agent data from the above lists.
+
+## Requests
+
+The code examples below illustrate methods for making API calls in different languages.
+
+### cURL
+
+```console
+$ curl -X GET 'https://masquer.fly.dev/masq?ua=true&rf=false&hd=false' -H 'accept: application/json'
+```
+
+### JavaScript (using `fetch`)
+
+```javascript
+fetch('https://masquer.fly.dev/masq?ua=true&rf=false&hd=false')
+  .then(response => response.json())
+  .then(data => console.log(data))
+```
+
+### Python (using `requests`)
+
+```python
+import requests
+response = requests.get("https://masquer.fly.dev/masq", params={"ua": True, "rf": False, "hd": False})
+print(response.json())
+```
 """
 
 SUMMARY = "A tool to generate random user-agent and referer data for HTTP requests."

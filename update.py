@@ -26,11 +26,11 @@ def update_useragents() -> bool:
         with open(os.path.join(ASSETS_DIR, "useragents.json"), "w") as f:
             json.dump(json_string, f)
 
-        logger.info("Fetched useragent data")
+        logger.info("Fetched user-agent data")
         return True
 
     except Exception as e:
-        logger.error(f"Error fetching useragent data: {e}")
+        logger.error(f"Error fetching user-agent data: {e}")
         return False
 
 
@@ -130,7 +130,7 @@ def update_assets() -> bool:
             f.write("USERAGENT_WEIGHTS = " + str(useragent_weights))
             f.write("\n")
 
-        logger.info("Saved useragent and referer JSON data to assets.py")
+        logger.info("Saved user-agent and referer JSON data to assets.py")
         return True
 
     except FileNotFoundError:
