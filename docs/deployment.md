@@ -80,7 +80,7 @@ If the app launches successfully, visit the documentation link provided and test
 If the tests work from the documentation, make a `curl` request from a separate terminal window:
 
 ```console
-$ curl -X GET 'http://127.0.0.1:8000/masq?ua=true&rf=true' -H 'accept: application/json'
+$ curl -X GET 'http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true' -H 'accept: application/json'
 ```
 
 If the expected response is received, proceed to the Docker image tests.

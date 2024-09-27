@@ -60,7 +60,7 @@ The API returns JSON objects, making it compatible with any language that can ma
 Here is an example using `curl` from the command line to get a random user-agent and referer:
 
 ```console
-$ curl -X GET 'https://masquer.fly.dev/masq?ua=true&rf=true' -H 'accept: application/json'
+$ curl -X GET 'https://masquer.fly.dev/api/v1/masq?ua=true&rf=true' -H 'accept: application/json'
 {
   "Referer":"https://www.google.com",
   "User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.3"

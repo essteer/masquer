@@ -102,9 +102,9 @@ The first several characters of the container's `sha256` are displayed under the
 With the container running, test a few API calls with different arguments and verify that the expected output is received, for example:
 
 ```console
-$ curl -X GET 'http://127.0.0.1:8000/masq' -H 'accept: application/json'
-$ curl -X GET 'http://127.0.0.1:8000/masq?ua=true&rf=true&hd=true' -H 'accept: application/json'
-$ curl -X GET 'http://127.0.0.1:8000/masq?ua=true&rf=true&hd=false' -H 'accept: application/json'
+$ curl -X GET 'http://127.0.0.1:8000/api/v1/masq' -H 'accept: application/json'
+$ curl -X GET 'http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true&hd=true' -H 'accept: application/json'
+$ curl -X GET 'http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true&hd=false' -H 'accept: application/json'
 ```
 
 <h3 align="center">

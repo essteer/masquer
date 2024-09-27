@@ -10,7 +10,8 @@ logger = get_logger(__name__)
 router = APIRouter()
 
 
-@router.get("/masq")
+@router.get("/masq")  # maintain for backwards compatibility
+@router.get("/api/v1/masq")
 def get_masq(
     ua: Union[bool, None] = True,
     rf: Union[bool, None] = False,
