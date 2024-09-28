@@ -18,7 +18,7 @@ See also the main [`README.md`](https://github.com/essteer/masquer/blob/main/REA
 
 ## Git repository
 
-[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
+[![GitHub](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
 Clone the `masquer` repo for the full source code:
 
@@ -51,7 +51,7 @@ The directory structure of the repo is as follows:
 ```
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Asset updates
@@ -75,12 +75,12 @@ In case of issues updating the assets, ensure all dependencies are installed and
 If using custom JSON data, the `update_assets()` function inside `update.py` can still be used to sync changes with the `assets.py` file inside the `masquer` package.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Docker
 
-<a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
+[![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
 
 In production `masquer` is deployed from a Docker image that is also called `masquer` and is registered here on Docker hub: [`https://hub.docker.com/r/essteer/masquer`](https://hub.docker.com/r/essteer/masquer).
 
@@ -98,12 +98,12 @@ During development &mdash; especially in the event of changes to the package dir
 A `docker.yaml` workflow is in place to build and publish a Docker image when a new release is made on the `main` branch &mdash; see the notes in [`deployment.md`](https://github.com/essteer/masquer/blob/main/docs/deployment.md) and [`docker.md`](https://github.com/essteer/masquer/blob/main/docs/docker.md) for more details.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Formatting
 
- <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json"></a>
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 Python files in `masquer` are formatted using Ruff.
 
@@ -116,12 +116,12 @@ A pre-commit hook is configured in `.pre-commit-config.yaml` to check and format
 A GitHub action is configured in `.github/workflows/ruff.yaml` to run Ruff checks for any push or pull request to the `main` branch.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## GitHub Actions
 
-[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
+[![GitHub](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
 GitHub actions are configured in `.github/workflows` and are in place for all pushes and pull requests for the `main` branch:
 
@@ -131,7 +131,7 @@ GitHub actions are configured in `.github/workflows` and are in place for all pu
 A `docker.yaml` workflow is in place to build a new Docker image and publish it to Docker Hub whenever a new release is made on the `main` branch &mdash; see the [`deployment.md`](https://github.com/essteer/masquer/blob/main/docs/deployment.md) notes for more details.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Logs
@@ -179,7 +179,7 @@ The following files are set up to record log messages:
 | `src/masquer` | `app.py` | |
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Tests
@@ -215,5 +215,5 @@ A GitHub action is configured in `.github/workflows/test.yaml` to run the unit t
 The tests are run on a matrix basis for Linux (Ubuntu), macOS and Windows on Python versions from `3.9` to `3.12` (inclusive).
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
