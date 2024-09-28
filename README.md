@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/essteer/masquer/actions/workflows/test.yaml"><img src="https://github.com/essteer/masquer/actions/workflows/test.yaml/badge.svg"></a>
-  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/PyPI-v1.2.2-3775A9.svg?style=flat&logo=PyPI&logoColor=white"></a>
+  <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/pypi/v/masquer?style=flat&logo=PyPI&logoColor=white&label=PyPI&labelColor=555&color=3776AB"></a>
   <a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/Python-3.9_~_3.12-3776AB.svg?style=flat&logo=Python&logoColor=white"></a>
   <a href="https://snyk.io/test/github/essteer/masquer"><img src="https://snyk.io/test/github/essteer/masquer/badge.svg?name=Snyk&style=flat&logo=Snyk"></a>
 </p>
@@ -70,12 +70,12 @@ $ curl -X GET 'https://masquer.fly.dev/masq?ua=true&rf=true' -H 'accept: applica
 Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or see [more details below](#examples) in the package documentation.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Python package
 
-[![](https://img.shields.io/badge/PyPI-masquer-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
+[![PyPI](https://img.shields.io/badge/PyPI-masquer-3775A9.svg?style=flat&logo=PyPI&logoColor=white)](https://pypi.org/project/masquer/)
 
 ### Installation
 
@@ -190,12 +190,12 @@ To get the header-data with randomly selected user-agent and/or referer data, pa
 ```
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Git repository
 
-[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
+[![GitHub](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
 Clone the `masquer` repo for the full source code, including the FastAPI app used to host the [API](#api) introduced above. 
 
@@ -262,7 +262,7 @@ Then follow the instructions FastAPI provides in the terminal.
 To view the API's interactive documentation, run the app and navigate to `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Docker image
@@ -286,5 +286,5 @@ $ docker run -d --name masquer -p 8000:8000 essteer/masquer
 Then interact as per the [API instructions](#api) above.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>

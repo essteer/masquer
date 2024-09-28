@@ -34,6 +34,8 @@ Asset updates are performed on a regular basis to keep the user-agent and refere
 
 A typical workflow up to the testing stage is outlined in this section.
 
+### Create feature branch 
+
 Activate the virtual environment then create and checkout a new branch such as `asset-update`.
 
 ```console
@@ -50,7 +52,7 @@ For an asset update, follow the instructions detailed under the [`Asset updates`
 If the process is successful and no issues arose, continue to the testing stage.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Test
@@ -67,7 +69,7 @@ Ensure all tests are passing before proceeding further.
 
 ### API tests
 
-<a href="https://github.com/tiangolo/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white"></a>
+[![FastAPI](https://img.shields.io/badge/FastAPI-masquer-009688?style=flat&logo=FastAPI&logoColor=white)](https://masquer.fly.dev/docs)
 
 Once the unit tests have passed, run the FastAPI app from the project root directory in development mode:
 
@@ -87,7 +89,7 @@ If the expected response is received, proceed to the Docker image tests.
 
 ### Docker image tests
 
-<a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
+[![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
 
 Follow the steps detailed in [`docker.md`](https://github.com/essteer/masquer/blob/main/docs/docker.md) to build and test a Docker image locally.
 
@@ -96,7 +98,7 @@ Once the image and container are confirmed as running successfully, repeat the A
 If each of the steps indicated above is successful, deployment can proceed to the next stage.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Version
@@ -113,15 +115,13 @@ New: 1.2.2
 
 This will automatically update the version number in `src/masquer/__about__.py`, which is where the version information in `pyproject.toml` is read from for the main `masquer` program, and in `src/api/main.py` for the API.
 
-Manually update the version number in the PyPI icon at the top of [`README.md`](https://github.com/essteer/masquer/blob/main/README.md) to match the new version number.
-
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Format
 
- <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json"></a>
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 Add and commit the version changes to git. 
 
@@ -134,12 +134,12 @@ See the [`Formatting`](https://github.com/essteer/masquer/blob/main/docs/develop
 Push to GitHub.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Merge to `main`
 
-[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
+[![GitHub](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
 If the package build was successful, open a PR on GitHub to merge the updated package into `main` branch. 
 
@@ -148,13 +148,13 @@ GitHub workflows are in place to do a final format and test whenever a commit or
 See the [`GitHub Actions`](https://github.com/essteer/masquer/blob/main/docs/development.md#github-actions) section of [`development.md`](https://github.com/essteer/masquer/blob/main/docs/development.md) for more details. 
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Release and build Docker image
 
-[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
-<a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
+[![GitHub](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
+[![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
 
 Assuming that the PR passed the GitHub Actions and the merge completed successfully, from the [main repo page](https://github.com/essteer/masquer) on GitHub click on the `Releases` heading then `Draft a new release`.
 
@@ -169,7 +169,7 @@ The `docker.yaml` GitHub workflow will then build a Docker image of the new vers
 Follow the instructions in [`docker.md`](https://github.com/essteer/masquer/blob/main/docs/docker.md) to pull and test that the image is working as expected.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Build distribution
@@ -187,12 +187,12 @@ dist/masquer-1.2.2-py3-none-any.whl
 ```
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Publish to PyPI
 
-<a href="https://pypi.org/project/masquer/"><img src="https://img.shields.io/badge/PyPI-3775A9.svg?style=flat&labelColor=555&logo=PyPI&logoColor=white"></a>
+[![PyPI](https://img.shields.io/pypi/v/masquer?style=flat&logo=PyPI&logoColor=white&label=PyPI&labelColor=555&color=3776AB)](https://pypi.org/project/masquer/)
 
 After a successful build the package is ready to publish on PyPI:
 
@@ -209,13 +209,12 @@ https://pypi.org/project/masquer/1.2.2/
 ```
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Deploy to production
 
-<a href="https://masquer.fly.dev/docs"><img src="https://img.shields.io/badge/Fly.io-24175B.svg?style=flat&labelColor=555&logo=flydotio&logoColor=white"></a>
-
+[![Fly.io](https://img.shields.io/badge/Fly.io-masquer-24175B.svg?style=flat&labelColor=555&logo=flydotio&logoColor=white)](https://masquer.fly.dev/docs)
 
 From the project root directory, run the following command to deploy to production:
 
@@ -226,5 +225,5 @@ $ fly deploy
 Visit the deployment at the link as prompted and test it via the API docs.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>

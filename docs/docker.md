@@ -19,7 +19,7 @@ See also the main [`README.md`](https://github.com/essteer/masquer/blob/main/REA
 
 ## Overview
 
-<a href="https://hub.docker.com/r/essteer/masquer"><img src="https://img.shields.io/badge/Docker-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white"></a>
+[![Docker](https://img.shields.io/badge/Docker-masquer-2496ED.svg?flat&logo=Docker&labelColor=555&logoColor=white)](https://hub.docker.com/r/essteer/masquer)
 
 In production `masquer` is deployed from a Docker image that is also called `masquer` and is registered here on Docker hub: [`https://hub.docker.com/r/essteer/masquer`](https://hub.docker.com/r/essteer/masquer).
 
@@ -30,7 +30,7 @@ The files used to configure the Docker image are both in the project root direct
 
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## Local development
@@ -65,7 +65,7 @@ If the build is successful, a container can then be run using the image to test 
 Note the first three characters of the image's `sha256` for subsequent use &mdash; in this case `1c3`.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ### Test container
@@ -92,12 +92,12 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 The first several characters of the container's `sha256` are displayed under the `CONTAINER ID` column, as are the first three characters of the image's `sha256`.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ### Test API on container
 
-<a href="https://github.com/tiangolo/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&labelColor=555&logoColor=white"></a>
+[![FastAPI](https://img.shields.io/badge/FastAPI-masquer-009688?style=flat&logo=FastAPI&logoColor=white)](https://masquer.fly.dev/docs)
 
 With the container running, test a few API calls with different arguments and verify that the expected output is received, for example:
 
@@ -108,7 +108,7 @@ $ curl -X GET 'http://127.0.0.1:8000/masq?ua=true&rf=true&hd=false' -H 'accept: 
 ```
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ### Check logs on container
@@ -144,7 +144,7 @@ $
 ```
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ### Clean up
@@ -168,12 +168,12 @@ Deleted: sha256:1c3642fd9d54d5870f1ed9dfdaf75d208bee648d15ba87c6de05ja4c5c069512
 ```
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
 
 ## GitHub Action
 
-[![](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
+[![GitHub](https://img.shields.io/badge/GitHub-masquer-181717.svg?flat&logo=GitHub&logoColor=white)](https://github.com/essteer/masquer)
 
 A `docker.yaml` workflow is in place to build a new Docker image and publish it to Docker Hub whenever a new release is made on the `main` branch.
 
@@ -182,5 +182,5 @@ The image will be published as the latest image version listed at [`https://hub.
 For this reason, the image must be tested locally via the steps provided in this document before a new release is made to ensure that it works correctly.
 
 <h3 align="center">
-  <a href="#"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
+  <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
 </h3>
