@@ -1,10 +1,36 @@
-from src.logging_config import setup_logging, get_logger
+import os
+import importlib.util
 from .utils.response import get_response
 from .utils.validate import validate_args
 
 
-setup_logging(__name__)
-logger = get_logger(__name__)
+def setup_logging_if_present():
+    """
+    Checks whether 'logging_config.py' exists in the parent directory
+      if so it imports and sets up the logger
+      if not it returns None and logging is not executed
+    """
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    logging_config_path = os.path.join(
+        os.path.dirname(current_dir), "logging_config.py"
+    )
+
+    if os.path.isfile(logging_config_path):
+        spec = importlib.util.spec_from_file_location(
+            "logging_config", logging_config_path
+        )
+        logging_config = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(logging_config)
+
+        logging_config.setup_logging(__name__)
+        return logging_config.get_logger(__name__)
+
+    else:
+        return None
+
+
+logger = setup_logging_if_present()
 
 
 def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
@@ -26,17 +52,21 @@ def masq(ua: bool = True, rf: bool = False, hd: bool = False) -> dict:
     valid_args = validate_args(ua, rf, hd)
 
     if not valid_args:
-        logger.warning(f"Invalid args: [{ua=} {rf=} {hd=}]")
+        if logger:
+            logger.warning(f"Invalid args: [{ua=} {rf=} {hd=}]")
         return {"error": "ua|rf|hd must be blank or boolean"}
 
-    logger.debug(f"Valid args: [{ua=} {rf=} {hd=}]")
+    if logger:
+        logger.debug(f"Valid args: [{ua=} {rf=} {hd=}]")
 
     try:
         response = get_response(ua, rf, hd)
-        logger.debug(f"Response: [{response}]")
+        if logger:
+            logger.debug(f"Response: [{response}]")
 
     except Exception as e:
-        logger.error(f"Error getting response: {e}")
+        if logger:
+            logger.error(f"Error getting response: {e}")
         return {"error": "Failed to retrieve response"}
 
     return response
