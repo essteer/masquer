@@ -27,13 +27,13 @@ The code examples below illustrate methods for making API calls in different lan
 ### cURL
 
 ```console
-$ curl -X GET 'https://masquer.fly.dev/api/v1/masq?ua=true&rf=false&hd=false' -H 'accept: application/json'
+$ curl -X GET 'https://masquer.fly.dev/api/v1/masq?ua=true&rf=false&hd=false&count=3' -H 'accept: application/json'
 ```
 
 ### JavaScript (using `fetch`)
 
 ```javascript
-fetch('https://masquer.fly.dev/api/v1/masq?ua=true&rf=false&hd=false')
+fetch('https://masquer.fly.dev/api/v1/masq?ua=true&rf=false&hd=false&count=3')
   .then(response => response.json())
   .then(data => console.log(data))
 ```
@@ -42,7 +42,7 @@ fetch('https://masquer.fly.dev/api/v1/masq?ua=true&rf=false&hd=false')
 
 ```python
 import requests
-response = requests.get("https://masquer.fly.dev/api/v1/masq", params={"ua": True, "rf": False, "hd": False})
+response = requests.get("https://masquer.fly.dev/api/v1/masq", params={"ua": True, "rf": False, "hd": False, "count": 3})
 print(response.json())
 ```
 """
