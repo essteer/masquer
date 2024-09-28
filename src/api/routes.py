@@ -9,6 +9,9 @@ setup_logging(__name__)
 logger = get_logger(__name__)
 router = APIRouter()
 
+MAX_COUNT = 250
+MIN_COUNT = 1
+
 
 @router.get("/masq")  # maintain for backwards compatibility
 @router.get("/api/v0/masq")
@@ -19,9 +22,10 @@ def get_masq_v0(
 ):
     logger.info(f"Request: [{ua=} {rf=} {hd=}]")
     response = masq(ua, rf, hd)
-    logger.info(f"Response: [{response}]")
+    logger.debug(f"Response: {response}")
 
     return JSONResponse(content=response)
+
 
 @router.get("/api/v1/masq")
 def get_masq(
@@ -30,10 +34,12 @@ def get_masq(
     hd: Union[bool, None] = False,
     count: Union[int, None] = 1,
 ):
-    logger.info(f"Request: [{ua=} {rf=} {hd=}]")
-    if count >= 250: count = 250
-    if count <= 0: count = 1
+    logger.info(f"Request: [{ua=} {rf=} {hd=} {count=}]")
+    if count >= MAX_COUNT:
+        count = MAX_COUNT
+    if count <= MIN_COUNT:
+        count = MIN_COUNT
     response = [masq(ua, rf, hd) for _ in range(count)]
-    logger.info(f"Response: [{response}]")
+    logger.debug(f"Response: {response}")
 
     return JSONResponse(content=response)

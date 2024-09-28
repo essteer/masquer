@@ -55,17 +55,21 @@ For development purposes see the `docs` directory for notes on development, depl
 
 An API for `masquer` is in deployment at `https://masquer.fly.dev/masq` &mdash; try it out with the interactive [Swagger UI](https://masquer.fly.dev/docs) or [ReDoc](https://masquer.fly.dev/redoc) documentation.
 
-The API returns JSON objects, making it compatible with any language that can make HTTP requests and parse JSON.
+The API returns a JSON array, making it compatible with any language that can make HTTP requests and parse JSON.
 
 Here is an example using `curl` from the command line to get a random user-agent and referer:
 
 ```console
 $ curl -X GET 'https://masquer.fly.dev/api/v1/masq?ua=true&rf=true' -H 'accept: application/json'
-{
-  "Referer":"https://www.google.com",
-  "User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.3"
-}
+[
+  {
+    "Referer":"https://www.google.com",
+    "User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.3"
+  }
+]
 ```
+
+The optional `count` parameter specifies the number of objects to return in the response. The default value is `1`.
 
 Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or see [more details below](#examples) in the package documentation.
 

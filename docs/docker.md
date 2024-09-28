@@ -109,8 +109,15 @@ With the container running, test a few API calls with different arguments and ve
 
 ```console
 $ curl -X GET 'http://127.0.0.1:8000/api/v1/masq' -H 'accept: application/json'
-$ curl -X GET 'http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true&hd=true' -H 'accept: application/json'
+$ curl -X GET 'http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true&hd=true&count=3' -H 'accept: application/json'
 $ curl -X GET 'http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true&hd=false' -H 'accept: application/json'
+```
+
+Proceed to the next stage if the tests are successful &mdash; if not, stop the container daemon with:
+
+```console
+$ docker stop 392  # change '392' to match the container's ID
+392
 ```
 
 <h3 align="center">
@@ -119,10 +126,11 @@ $ curl -X GET 'http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true&hd=false' -H 'a
 
 ### Check logs on container
 
-If the API is working as expected, stop the container daemon and then run a shell on the container in the foreground to check that expected logs were generated.
+Start the container if it is not currently running, then enter the shell on the container to view the logs:
 
 ```console
-$ docker stop 392  # change '392' to match the container's ID
+$ docker start 392  # change '392' to match the container's ID
+392
 $ docker exec -it 392 sh  # 'sh' runs the basic shell
 /usr/src/app/src $ ls
 ```
@@ -136,8 +144,8 @@ Change to the `logs` directory and `cat` the `app.log` contents &mdash; output s
 ```console
 /usr/src/app/src $ cd ../logs
 /usr/src/app/logs $ cat app.log
-2024-09-22 04:34:25 - INFO - main.py:43 - FastAPI app init OK
-2024-09-22 04:36:59 - INFO - routes.py:19 - Request: [ua=True rf=False hd=False]
+2024-09-28 04:34:25 - INFO - main.py:43 - FastAPI app init OK
+2024-09-28 04:36:59 - INFO - routes.py:19 - Request: [ua=True rf=False hd=False count=1]
 ...
 ```
 
