@@ -157,8 +157,8 @@ YYYY-MM-DD HH:MM:SS - {log-level} - {file}:{line-number} - {message}
 Two examples are displayed below:
 
 ```
-2024-09-17 14:52:26 - INFO - routes.py:19 - Request: [ua=True rf=False hd=False]
-2024-09-21 13:13:34 - WARNING - app.py:29 - Invalid args: [ua='True' rf=False hd=False]
+2024-09-17 14:52:26 - INFO - routes.py:19 - Request: [ua=True rf=False hd=False count=1]
+2024-09-21 13:13:34 - WARNING - app.py:29 - Invalid args: [ua='True' rf=False hd=False count=1]
 ```
 
 ### Output

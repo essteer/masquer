@@ -27,7 +27,7 @@ def get_response(
     response_data = dict()
 
     if header_requested:
-        response_data = HEADER_DATA
+        response_data = dict(HEADER_DATA)
 
     if referer_requested:
         referer = select_data(REFERERS, REFERER_WEIGHTS)
