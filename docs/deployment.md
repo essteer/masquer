@@ -20,6 +20,7 @@ The process for more significant releases may be more involved in the developmen
 - [Version](#version)
 - [Format](#format)
 - [Build distribution](#build-distribution)
+  - [Test distribution](#test-distribution)
 - [Merge to main](#merge-to-main)
 - [Release-and-build Docker image](#release-and-build-docker-image)
   - [Pull image and run container](#pull-image-and-run-container)
@@ -184,6 +185,43 @@ $ hatch build
 dist/masquer-1.2.2.tar.gz
 ────────────── wheel ──────────────
 dist/masquer-1.2.2-py3-none-any.whl
+```
+
+### Test distribution
+
+Do a test install of the newly built distribution in a new virtual environment to ensure that the package works as expected.
+
+From the project root directory, create and activate a test environment:
+
+```console
+$ uv venv test_env --python 3.12
+$ source test_env/bin/activate
+```
+
+Install the `.whl` file into the test environment:
+
+```console
+$ uv pip install dist/masquer-1.2.2-py3-none-any.whl
+```
+
+Activate Python and attempt to install and use the `masquer` library:
+
+```console
+$ python3
+>>> from masquer import masq
+>>> masq()
+```
+
+If any errors arise at this stage, they must be fixed before proceeding, and a new build will need to be created and tested.
+
+If the library imports correctly and functions as expected, the package is ready to be published.
+
+Exit Python and deactivate the test environment, then remove it from the repository:
+
+```console
+>>> exit()
+$ deactivate
+$ rm -rf test_env
 ```
 
 <h3 align="center">
