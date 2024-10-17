@@ -1,4 +1,5 @@
-name: Ruff
+name: Formatting
+
 on:
   # Trigger workflow on main branch push or pull request 
   push:
