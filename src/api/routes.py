@@ -13,8 +13,8 @@ MAX_COUNT = 250
 MIN_COUNT = 1
 
 
-@router.get("/masq")  # maintain for backwards compatibility
-@router.get("/api/v0/masq")
+@router.get("/masq", include_in_schema=False)  # maintain for backwards compatibility
+@router.get("/api/v0/masq", summary="Get a single object")
 def get_masq_v0(
     ua: Union[bool, None] = True,
     rf: Union[bool, None] = False,
@@ -27,7 +27,7 @@ def get_masq_v0(
     return JSONResponse(content=response)
 
 
-@router.get("/api/v1/masq")
+@router.get("/api/v1/masq", summary="Get an array of objects")
 def get_masq(
     ua: Union[bool, None] = True,
     rf: Union[bool, None] = False,
