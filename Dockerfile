@@ -4,11 +4,10 @@ LABEL maintainer="Elliott Steer <essteer@pm.me>"
 
 WORKDIR /usr/src/app/src
 
-ADD --chmod=755 https://astral.sh/uv/install.sh /install.sh
-RUN /install.sh && rm /install.sh
+RUN pip install uv
 
 # Install FastAPI as the sole dependency
-RUN /root/.cargo/bin/uv pip install --system --no-cache fastapi==0.111.0
+RUN uv pip install --system --no-cache fastapi==0.111.0
 
 # Copy entire src directory to WORKDIR
 COPY ./src .
