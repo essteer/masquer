@@ -71,7 +71,7 @@ $ curl -X GET 'https://masquer.fly.dev/api/v1/masq?ua=true&rf=true' -H 'accept: 
 
 The optional `count` parameter specifies the number of objects to return in the response. The default value is `1`.
 
-Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or see [more details below](#examples) in the package documentation.
+Refer to the [API docs](`https://masquer.fly.dev/docs`) for other examples, or see [more details below](#examples) in the package documentation. The `tests/requests/` directory also contains HTTP request examples for use in development and production.
 
 <h3 align="center">
   <a href="#title"><img src="https://img.shields.io/badge/▲%20Top%20▲-0466c8.svg?style=flat"></a>
