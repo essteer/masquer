@@ -1,0 +1,3 @@
+name: ua-hd
+description: Returns header data with random useragent and fixed referer.
+url: http://127.0.0.1:8000/api/v1/masq?ua=true&hd=true

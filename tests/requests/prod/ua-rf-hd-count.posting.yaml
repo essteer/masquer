@@ -1,0 +1,4 @@
+name: ua-rf-hd-count
+description: Returns multiple sets of header data with random useragent and random
+  referer, as specified by the count param.
+url: https://masquer.fly.dev/api/v1/masq?ua=true&rf=true&hd=true&count=3
