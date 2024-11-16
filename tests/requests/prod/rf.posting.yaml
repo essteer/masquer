@@ -1,0 +1,3 @@
+name: rf
+description: Returns a random referer.
+url: https://masquer.fly.dev/api/v1/masq?ua=false&rf=true

@@ -1,0 +1,3 @@
+name: default
+description: Default GET request with no parameters, returns a random useragent.
+url: http://127.0.0.1:8000/api/v1/masq

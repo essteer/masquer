@@ -1,0 +1,4 @@
+name: ua-rf-hd-count
+description: Returns multiple sets of header data with random useragent and random
+  referer, as specified by the count param.
+url: http://127.0.0.1:8000/api/v1/masq?ua=true&rf=true&hd=true&count=3
