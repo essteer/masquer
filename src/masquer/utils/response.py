@@ -4,8 +4,9 @@ from .assets import (
     REFERER_WEIGHTS,
     USERAGENTS,
     USERAGENT_WEIGHTS,
+    SEC_CH_UA
 )
-from .select import select_data
+from .select import select_ch_ua, select_data
 
 
 def get_response(
@@ -36,5 +37,11 @@ def get_response(
     if useragent_requested:
         useragent = select_data(USERAGENTS, USERAGENT_WEIGHTS)
         response_data["User-Agent"] = useragent
+        if "Safari/537" in useragent:
+            sec_dict = select_ch_ua(useragent, SEC_CH_UA)
+            if(sec_dict):
+                response_data['Sec-CH-UA'] = sec_dict['sec-ch-ua']
+                response_data['Sec-CH-UA-Mobile'] = sec_dict['sec-ch-ua-mobile']
+                response_data['Sec-CH-UA-Platform'] = sec_dict['sec-ch-ua-platform']
 
     return response_data
