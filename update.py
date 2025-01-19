@@ -1,5 +1,7 @@
+import base64
 import json
 import os
+import re
 import requests
 import sys
 from bs4 import BeautifulSoup
@@ -12,6 +14,7 @@ logger = get_logger(__name__)
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 ASSETS_DIR = os.path.join(ROOT_DIR, "assets")
 UTILS_DIR = os.path.join(ROOT_DIR, "src", "masquer", "utils")
+VERSION_RE = re.compile(r"Chrome\/(\d+\.\d+\.\d+\.\d+)")
 
 
 def update_useragents() -> bool:
@@ -97,6 +100,58 @@ def extract_data(json_file_path: str) -> dict | list[dict]:
         data = json.load(f)
     return data
 
+def update_sec_ch_ua() -> bool:
+    """Gets latest referer stats and saves them to JSON file"""
+    REPO_OWNER = "fa0311"
+    REPO_NAME = "latest-user-agent"
+    BASE_URL = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}"
+    FILE_PATH = "header.json"
+    
+    latest_commits = get_latest_commits(f"{BASE_URL}/commits")
+    sec_ch_uas = {}
+    logger.info("Fetched sec-ch-ua data")
+    for commit in latest_commits:
+        file_content = get_file_content_at_commit(f"{BASE_URL}/contents/{FILE_PATH}", commit)
+        version, sec_ch_ua = extract_sec_ch_ua(file_content)
+        if sec_ch_ua:
+            sec_ch_uas[version] = sec_ch_ua
+    json_string = json.dumps(sec_ch_uas)
+    with open(os.path.join(ASSETS_DIR, "sec_ch_ua.json"), "w") as f:
+        json.dump(json_string, f)
+    return True
+    
+
+def get_latest_commits(url: str):
+    """Fetch the latest 5 commits that modified the file."""
+    FILE_PATH = "header.json"
+    params = {
+        "path": FILE_PATH,
+        "per_page": 10  # Limit to the latest 5 commits
+    }
+    response = requests.get(url,  params=params)
+    response.raise_for_status()
+    return [commit["sha"] for commit in response.json()]
+
+
+def get_file_content_at_commit(url: str, commit_sha: str):
+    """Fetch the file content at a specific commit."""
+    params = {
+        "ref": commit_sha
+    }
+    response = requests.get(url, params=params)
+    response.raise_for_status()
+    content = response.json()["content"]
+    # Decode the base64-encoded content
+    return base64.b64decode(content).decode("utf-8")
+
+def extract_sec_ch_ua(json_content):
+    """Extract the 'sec-ch-ua' value from the JSON content."""
+    data = json.loads(json_content)
+    user_agent = data.get("chrome", {}).get("user-agent", None)
+    if not user_agent:
+        return None, None
+    version = VERSION_RE.search(user_agent)
+    return version.group(1), data.get("chrome", {}).get("sec-ch-ua", None)
 
 def update_assets() -> bool:
     """
@@ -109,6 +164,7 @@ def update_assets() -> bool:
         header_data = extract_data(os.path.join(ASSETS_DIR, "header.json"))
         referer_data = extract_data(os.path.join(ASSETS_DIR, "referers.json"))
         useragent_data = extract_data(os.path.join(ASSETS_DIR, "useragents.json"))
+        sec_ch_ua_data = extract_data(os.path.join(ASSETS_DIR, "sec_ch_ua.json"))
 
         referers = [obj["ref"] for obj in referer_data]
         referer_weights = [obj["pct"] for obj in referer_data]
@@ -129,8 +185,10 @@ def update_assets() -> bool:
             f.write("\n")
             f.write("USERAGENT_WEIGHTS = " + str(useragent_weights))
             f.write("\n")
+            f.write("SEC_CH_UA = " + str(sec_ch_ua_data))
+            f.write("\n")
 
-        logger.info("Saved user-agent and referer JSON data to assets.py")
+        logger.info("Saved user-agent, referer and sec-ch-ua JSON data to assets.py")
         return True
 
     except FileNotFoundError:
@@ -145,7 +203,9 @@ def update_assets() -> bool:
 if __name__ == "__main__":
     ua = update_useragents()
     rf = update_referers()
-    if ua and rf:
+    sec_ch_ua = update_sec_ch_ua()
+    
+    if ua and rf and sec_ch_ua:
         assets_updated = update_assets()
         if assets_updated:
             sys.exit(0)
